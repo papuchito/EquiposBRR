@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Equiposmd.Models.Mequipo>
+@{
+}
+
+<div class="container mt-2">
+    <div class="row justify-content-center my-2">
+        <div class="col-md-4 custom-form-bar">
+            <form id="formSearch" class="form-inline">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Buscar" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="searchTable()">Filtrar</button>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="refreshData()">
+                        <i class="fas fa-sync-alt"></i> Refrescar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card border">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h3 class="m-0"><strong>Lista De Equipos Comprados</strong></h3>
+                    <a asp-action="Modeloequipo" asp-controller="GestionGeneral" class="btn btn-secondary btn-sm">Registrar Nueva compra</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        @if (Model.Count() > 0)
+                        {
+                            <table class="table table-bordered table-striped" id="tblUsuarios">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th style="width: 3%">Id</th>
+                                        <th style="width: 12%">Tipo</th>
+                                        <th style="width: 8%">Marca</th>
+                                        <th style="width: 8%">Modelo</th>
+                                        <th style="width: 8%">Color</th>
+                                        <th style="width: 8%">Condicion</th>
+                                        <th style="width: 8%">Núm. Activo</th>
+                                        <th style="width: 8%">Núm. Serial</th>
+                                        <th style="width: 8%">Fec. Fab.</th>
+                                        <th style="width: 8%">Fec. Adq.</th>
+                                        <th style="width: 8%">Exp. Gar. 1</th>
+                                        <th style="width: 8%">Exp. Gar. 2</th>
+                                        <th style="width: 8%">Fec. Util</th>
+                                        <th style="width: 8%">Fec. Desc.</th>
+                                        <th style="width: 8%">Precio</th>
+                                        <th style="width: 15%">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Tipo</td>
+                                            <td>@item.Marca</td>
+                                            <td>@item.Modelo</td>
+                                            <td>@item.Color</td>
+                                            <td>@item.Condicion</td>
+                                            <td>@item.Numero_de_activo</td>
+                                            <td>@item.Numero_serial</td>
+                                            <td>@item.Fecha_fabricacion</td>
+                                            <td>@item.fecha_adquisicion</td>
+                                            <td>@item.Fecha_expiracion_garantia_1</td>
+                                            <td>@item.Fecha_expiracion_garantia_2</td>
+                                            <td>@item.Fecha_final_vida_util</td>
+                                            <td>@item.Fecha_descarte</td>
+                                            <td>@item.Precio</td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Detalles</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p class="text-center">No hay equipos registrados</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Función para manejar el evento de clic en el botón de refrescar
+        function refreshData() {
+            // Recarga la página actual
+            location.reload();
+        }
+
+        // Función para manejar la búsqueda
+        function searchTable() {
+            var searchText = $('#searchInput').val().toLowerCase();
+
+            $('#tblUsuarios tbody tr').each(function () {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(searchText));
+            });
+        }
+    </script>
+}

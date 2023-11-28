@@ -1,0 +1,166 @@
+﻿@model Equiposmd.Models.RegistroIndividual
+@{
+    ViewData["Title"] = "Registrar Un Nuevo Equipo";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Equipo</title>
+    <style>
+        /* Estilos para el formulario */
+        .container {
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px; /* Nuevo estilo para el margen inferior */
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Registrar Un Nuevo Equipo</h1>
+        <form asp-action="Editar" method="post">
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Tipo</label>
+                    <select asp-for="Tipo" class="form-control">
+                        <option value=""></option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="MOUSE">MOUSE</option>
+                        <option value="TECLADO">TECLADO</option>
+                    </select>
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Marca</label>
+                    <select asp-for="Marca" class="form-control">
+                        <option value=""></option>
+                        <option value="Hp">Hp</option>
+                        <option value="Dell">Dell</option>
+                        <option value="Lenovo">Lenovo</option>
+                    </select>
+                    <span asp-validation-for="Marca" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Modelo</label>
+                    <select asp-for="Modelo" class="form-control">
+                        <option value=""></option>
+                        <option value="Hp">Hp</option>
+                        <option value="Dell">Dell</option>
+                        <option value="Lenovo">Lenovo</option>
+                    </select>
+                    <span asp-validation-for="Modelo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Número de activo del banco</label>
+                    <input asp-for="Número_de_activo_del_banco" class="form-control" oninput="validarNumeroActivo(this)">
+                    <span asp-validation-for="Número_de_activo_del_banco" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Número serial</label>
+                    <input asp-for="Número_serial_de_fábrica" class="form-control">
+                    <span asp-validation-for="Número_serial_de_fábrica" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Estado</label>
+                    <select asp-for="Estado" class="form-control">
+                        <option value=""></option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                        <option value="En reparación">En reparación</option>
+                    </select>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Color</label>
+                    <select asp-for="Color" class="form-control">
+                        <option value=""></option>
+                        <option value="Rojo">Rojo</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Amarillo">Amarillo</option>
+                        <option value="Naranja">Naranja</option>
+                        <option value="Morado">Morado</option>
+                        <option value="Rosa">Rosa</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Marron">Marron</option>
+                        <option value="Celeste">Celeste</option>
+                        <option value="Turquesa">Turquesa</option>
+                        <option value="Oro">Oro</option>
+                        <option value="Plata">Plata</option>
+                        <option value="Violeta">Violeta</option>
+                        <option value="Cian">Cian</option>
+                        <option value="Lavanda">Lavanda</option>
+                        <option value="Cafe">Cafe</option>
+                        <option value="Esmeralda">Esmeralda</option>
+                        <option value="Coral">Coral</option>
+                        <option value="Granate">Granate</option>
+                        <option value="Turmalina">Turmalina</option>
+                        <option value="Zafiro">Zafiro</option>
+                        <option value="Ambar">Ambar</option>
+                        <option value="Indigo">Indigo</option>
+                        <option value="Aguamarina">Aguamarina</option>
+                        <option value="Carmesi">Carmesi</option>
+                    </select>
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+                </div>
+
+              
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-secondary d-block mx-auto">Crear</button>
+            </div>
+
+        </form>
+        <a asp-controller="EquipoGeneral" asp-action="DetalleE" class="btn btn-link d-block text-center">Volver</a>
+    </div>
+</body>
+</html>
+@section Scripts {
+    <script>
+        function validarNumeroActivo(input) {
+            // Eliminar cualquier caracter que no sea un número, la letra 'E', o el número '0'
+            input.value = input.value.replace(/[^0-9Ee]|^0+/g, '');
+
+            // Convertir la letra 'E' ingresada a mayúscula
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+}
+
+
+

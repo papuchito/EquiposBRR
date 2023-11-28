@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Equiposmd.Models.AsignarAreaEquipo>
+
+<h1 class="Detalles"></h1>
+<div class="container mt-2">
+    <div class="row justify-content-center my-2">
+        <div class="col-md-4 custom-form-bar">
+            <form id="formSearch" class="form-inline">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Buscar" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="searchTable()">Filtrar</button>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="refreshData()">
+                        <i class="fas fa-sync-alt"></i> Refrescar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card border">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h3 class="m-0"><strong>Lista De Areas Asignada A Un Equipo</strong></h3>
+                    <a asp-action="Modeloequipo" asp-controller="GestionGeneral" class="btn btn-secondary btn-sm">Asignar Area A Un Equipo</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        @if (Model.Count() > 0)
+                        {
+                            <table class="table table-bordered table-striped" id="tblUsuarios" width="100%" style="table-layout: auto">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th style="width: 3%">Id</th>
+                                        <th style="width: 12%">Id_Equipo</th>
+                                        <th style="width: 8%">Numero_serial</th>
+                                        <th style="width: 8%">Numero_activo_del_banco</th>
+                                        <th style="width: 8%">Area_Asignada</th>
+                                        <th style="width: 8%">Tipo</th>
+                                        <th style="width: 8%">Marca</th>
+                                        <th style="width: 15%">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Id_Equipo</td>
+                                            <td>@item.Numero_serial</td>
+                                            <td>@item.Numero_activo_del_banco</td>
+                                            <td>@item.Area_Asignada</td>
+                                            <td>@item.Tipo</td>
+                                            <td>@item.Marca</td>
+                                            
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                                                    <a class="btn btn-secondary btn-sm" asp-action="Detalle" asp-route-id="@item.Id">Detalle</a>
+                                                    <a class="btn btn-danger btn-sm" asp-action="Borrar" asp-route-id="@item.Id">Borrar</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p class="text-center">No hay equipos registrados</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Función para manejar el evento de clic en el botón de refrescar
+        function refreshData() {
+            // Recarga la página actual
+            location.reload();
+        }
+
+        // Función para manejar la búsqueda
+        function searchTable() {
+            var searchText = $('#searchInput').val().toLowerCase();
+
+            $('#tblUsuarios tbody tr').each(function () {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(searchText));
+            });
+        }
+    </script>
+}
