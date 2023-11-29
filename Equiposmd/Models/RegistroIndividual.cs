@@ -9,7 +9,7 @@ namespace Equiposmd.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "El Tipo de equipo es obligatorio")]
         public string Tipo { get; set; }
@@ -31,10 +31,5 @@ namespace Equiposmd.Models
 
         [Required(ErrorMessage = "El Color del equipo es obligatorio")]
         public string Color { get; set; }
-        // Esta propiedad no se persistirá en la base de datos, es solo para la vista
-        [NotMapped]
-        public List<SelectListItem> MarcasDisponibles { get; set; }
-        public int Id { get; set; }
-        public string Nombre { get; set; }
     }
 }

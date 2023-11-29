@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Equiposmd.Models.SolicitudEquipo>
+﻿@model IEnumerable<Equiposmd.Models.suvar203>
 @{
     ViewData["Title"] = "Lista de contactos";
 }
@@ -31,7 +31,7 @@
         </div>
     </div>
 </div>
-      
+
 
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -49,13 +49,21 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 5%">@Html.DisplayNameFor(m => m.Id)</th>
-                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Areasolicitada)</th>
-                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.TipoEquipo)</th>
-                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Procesador)</th>
-                                        <th style="width: 2%">@Html.DisplayNameFor(m => m.MemoriaRam)</th>
-                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.DiscoDuro)</th>
-                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.TarjetaGrafica)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.UnidadEmisora)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Ubicacion)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Oficina)</th>
+                                        <th style="width: 2%">@Html.DisplayNameFor(m => m.Codigo)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Fecha)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Telefono)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Numero_de_activo)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Descripcion)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Modelo)</th>
                                         <th style="width: 10%">@Html.DisplayNameFor(m => m.Marca)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Numerodeserie)</th>
+                                        <th style="width: 2%">@Html.DisplayNameFor(m => m.Color)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Condicion)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Observaciones)</th>
+
                                         <th style="width: 12%">Acciones</th>
 
                                     </tr>
@@ -65,13 +73,21 @@
                                     {
                                         <tr>
                                             <td>@Html.DisplayFor(m => item.Id)</td>
-                                            <td>@Html.DisplayFor(m => item.Areasolicitada)</td>
-                                            <td>@Html.DisplayFor(m => item.TipoEquipo)</td>
-                                            <td>@Html.DisplayFor(m => item.Procesador)</td>
-                                            <td>@Html.DisplayFor(m => item.MemoriaRam)</td>
-                                            <td>@Html.DisplayFor(m => item.DiscoDuro)</td>
-                                            <td>@Html.DisplayFor(m => item.TarjetaGrafica)</td>
+                                            <td>@Html.DisplayFor(m => item.UnidadEmisora)</td>
+                                            <td>@Html.DisplayFor(m => item.Ubicacion)</td>
+                                            <td>@Html.DisplayFor(m => item.Oficina)</td>
+                                            <td>@Html.DisplayFor(m => item.Codigo)</td>
+                                            <td>@Html.DisplayFor(m => item.Fecha)</td>
+                                            <td>@Html.DisplayFor(m => item.Telefono)</td>
                                             <td>@Html.DisplayFor(m => item.Marca)</td>
+                                            <td>@Html.DisplayFor(m => item.Numero_de_activo)</td>
+                                            <td>@Html.DisplayFor(m => item.Descripcion)</td>
+                                            <td>@Html.DisplayFor(m => item.Modelo)</td>
+                                            <td>@Html.DisplayFor(m => item.Marca)</td>
+                                            <td>@Html.DisplayFor(m => item.Numerodeserie)</td>
+                                            <td>@Html.DisplayFor(m => item.Color)</td>
+                                            <td>@Html.DisplayFor(m => item.Condicion)</td>
+                                            <td>@Html.DisplayFor(m => item.Observaciones)</td>
                                             <td>
                                                 <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
                                                 <a class="btn btn-danger btn-sm" asp-action="Borrar" asp-route-id="@item.Id">Borrar</a>
@@ -92,23 +108,23 @@
     </div>
 </div>
 
-        @section Scripts {
-            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-            <script>
-                // Función para manejar el evento de clic en el botón de refrescar
-                function refreshData() {
-                    // Recarga la página actual
-                    location.reload();
-                }
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Función para manejar el evento de clic en el botón de refrescar
+        function refreshData() {
+            // Recarga la página actual
+            location.reload();
+        }
 
-                // Función para manejar la búsqueda
-                function searchTable() {
-                    var searchText = $('#searchInput').val().toLowerCase();
+        // Función para manejar la búsqueda
+        function searchTable() {
+            var searchText = $('#searchInput').val().toLowerCase();
 
-                    $('#tblUsuarios tbody tr').each(function () {
-                        var rowText = $(this).text().toLowerCase();
-                        $(this).toggle(rowText.includes(searchText));
-                    });
-                }
-            </script>
+            $('#tblUsuarios tbody tr').each(function () {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(searchText));
+            });
+        }
+    </script>
         }

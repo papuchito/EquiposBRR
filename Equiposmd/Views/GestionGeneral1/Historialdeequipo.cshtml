@@ -22,11 +22,11 @@
 
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-24">
             <div class="card border">
                 <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                     <h3 class="m-0"><strong>Lista De Equipos Comprados</strong></h3>
-                    <a asp-action="Modeloequipo" asp-controller="GestionGeneral" class="btn btn-secondary btn-sm">Registrar Nueva compra</a>
+                    <a asp-action="ModeloEquipo" asp-controller="GestionGeneral1" class="btn btn-secondary btn-sm">Registrar Nueva compra</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -50,14 +50,20 @@
                                         <th style="width: 8%">Fec. Util</th>
                                         <th style="width: 8%">Fec. Desc.</th>
                                         <th style="width: 8%">Precio</th>
+                                        <th style="width: 3%">Cantidad</th>
                                         <th style="width: 15%">Acciones</th>
                                     </tr>
                                 </thead>
+                                <!-- Resto de tu código HTML -->
+
                                 <tbody>
+                                    @{
+                                        var contador = 1;
+                                    }
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@item.Id</td>
+                                        <tr id="equipo-@item.Id">
+                                            <td>@contador</td>
                                             <td>@item.Tipo</td>
                                             <td>@item.Marca</td>
                                             <td>@item.Modelo</td>
@@ -72,14 +78,20 @@
                                             <td>@item.Fecha_final_vida_util</td>
                                             <td>@item.Fecha_descarte</td>
                                             <td>@item.Precio</td>
+                                            <td>@item.Cantidad</td>
+
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Detalles</a>
                                                 </div>
                                             </td>
                                         </tr>
+                                        contador++;
                                     }
                                 </tbody>
+
+                                <!-- Resto de tu código HTML -->
+
                             </table>
                         }
                         else

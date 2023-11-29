@@ -37,46 +37,157 @@
     
     <div class="row">
         <div class="form-group col-md-4">
-            <label>Area Solicitada:</label>
+            <h6>
+                Area Solicitada
+                <small class="text-muted"></small>
+            </h6>
             <input asp-for="Areasolicitada" class="form-control" />
             <span asp-validation-for="Areasolicitada" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-4">
-            <label>Tipo de Equipo:</label>
+            <h6>
+                Tipo de Equipo
+                <small class="text-muted"></small>
+            </h6>
             <input asp-for="TipoEquipo" class="form-control" />
             <span asp-validation-for="TipoEquipo" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-4">
-            <label>Procesador:</label>
+            <h6>
+                Procesador
+                <small class="text-muted"></small>
+            </h6>
             <input asp-for="Procesador" class="form-control" />
             <span asp-validation-for="Procesador" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-4">
-            <label>Memoria RAM:</label>
-            <input asp-for="MemoriaRam" class="form-control" />
+            <h6>
+                Memoria Ram
+                <small class="text-muted"></small>
+            </h6>
+            <select asp-for="MemoriaRam" class="form-control">
+                <option value=""></option>
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+                <option value="32">32</option>
+                <option value="64">64</option>
+            </select>
             <span asp-validation-for="MemoriaRam" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-4">
-            <label>Disco Duro:</label>
-            <input asp-for="DiscoDuro" class="form-control" />
+            <h6>
+                Disco Duro
+                <small class="text-muted"></small>
+            </h6>
+            <select asp-for="DiscoDuro" class="form-control">
+                <option value=""></option>
+                <option value="128GB">128GB SSD</option>
+                <option value="256GB">256GB SSD</option>
+                <option value="320GB">320GB SSD</option>
+                <option value="512GB">512GB SSD</option>
+                <option value="1TB SSD">1TB SSD</option>
+                <option value="2TB">2TB SSD</option>
+                <option value="3TB">3TB SSD</option>
+                <option value="4TB">4TB SSD</option>
+                <option value="5TB">5TB SSD</option>
+                <option value="6TB">6TB SSD</option>
+            </select>
             <span asp-validation-for="DiscoDuro" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-4">
-            <label>Tarjeta Grafica:</label>
+            <h6>
+                Tarjeta Grafica
+                <small class="text-muted"></small>
+            </h6>
             <input asp-for="TarjetaGrafica" class="form-control" />
             <span asp-validation-for="TarjetaGrafica" class="text-danger"></span>
         </div>
 
+
         <div class="form-group col-md-4">
-            <label>Marca:</label>
-            <input asp-for="Marca" class="form-control" />
+            <h6>
+                Marca
+                <small class="text-muted"></small>
+            </h6>
+            <select asp-for="Marca" class="form-control">
+                <option value=""></option>
+                <option value="Hp">Hp</option>
+                <option value="Dell">Dell</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="Acer">Acer</option>
+                <option value="Asus">Asus</option>
+                <option value="Apple">Apple</option>
+                <option value="Sony">Sony</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Toshiba">Toshiba</option>
+                <option value="Microsoft">Microsoft</option>
+                <option value="Panasonic">Panasonic</option>
+                <option value="LG">LG</option>
+                <option value="IBM">IBM</option>
+                <option value="Gateway">Gateway</option>
+                <option value="Fujitsu">Fujitsu</option>
+                <option value="Compaq">Compaq</option>
+                <option value="MSI">MSI</option>
+                <option value="Alienware">Alienware</option>
+                <option value="Xiaomi">Xiaomi</option>
+                <option value="Huawei">Huawei</option>
+                <option value="Google">Google</option>
+                <option value="Razer">Razer</option>
+                <option value="Corsair">Corsair</option>
+                <option value="Philips">Philips</option>
+                <option value="Bosch">Bosch</option>
+                <option value="Dyson">Dyson</option>
+                <option value="D-Link">D-Link</option>
+                <option value="Linksys">Linksys</option>
+                <option value="Netgear">Netgear</option>
+                <option value="Canon">Canon</option>
+                <option value="Nikon">Nikon</option>
+                <option value="GoPro">GoPro</option>
+                <option value="DJI">DJI</option>
+                <option value="Garmin">Garmin</option>
+                <option value="Fitbit">Fitbit</option>
+                <option value="Xerox">Xerox</option>
+                <option value="Lexmark">Lexmark</option>
+                <option value="Bose">Bose</option>
+                <option value="JBL">JBL</option>
+                <option value="Sennheiser">Sennheiser</option>
+                <option value="Audio-Technica">Audio-Technica</option>
+                <option value="Western Digital">Western Digital</option>
+                <option value="Seagate">Seagate</option>
+                <option value="Sandisk">Sandisk</option>
+                <option value="Logitech">Logitech</option>
+                <option value="Intel">Intel</option>
+                <option value="AMD">AMD</option>
+                <option value="NVIDIA">NVIDIA</option>
+                <option value="Kingston">Kingston</option>
+                <option value="Crucial">Crucial</option>
+                <option value="Adata">Adata</option>
+                <option value="HyperX">HyperX</option>
+                <option value="SteelSeries">SteelSeries</option>
+                <option value="Roccat">Roccat</option>
+                <option value="Cooler Master">Cooler Master</option>
+                <option value="NZXT">NZXT</option>
+                <option value="Fractal Design">Fractal Design</option>
+                <option value="Thermaltake">Thermaltake</option>
+                <option value="EVGA">EVGA</option>
+                <option value="Gigabyte">Gigabyte</option>
+                <option value="ASRock">ASRock</option>
+                <option value="Biostar">Biostar</option>
+                <option value="Raspberry Pi">Raspberry Pi</option>
+                <option value="Arduino">Arduino</option>
+
+
+            </select>
             <span asp-validation-for="Marca" class="text-danger"></span>
         </div>
+    </div>
     </div>
    
 
