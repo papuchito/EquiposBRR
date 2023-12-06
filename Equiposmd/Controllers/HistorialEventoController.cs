@@ -17,7 +17,6 @@ namespace Equiposmd.Controllers
             return View();
         }
         [HttpGet]
-        [HttpGet]
         public async Task<IActionResult> ListaDeEvento(string searchString)
         {
             var historialEvento = await _contexto.historialEventos.ToListAsync();
@@ -45,7 +44,7 @@ namespace Equiposmd.Controllers
             return View(historialEvento);
         }
 
-        public async Task<IActionResult> Evento (HistorialEvento ListaDeEvento)
+        public async Task<IActionResult> ListaDeEvento(HistorialEvento ListaDeEvento)
         {
             if (ModelState.IsValid)
             {

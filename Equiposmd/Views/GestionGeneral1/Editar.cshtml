@@ -1,5 +1,6 @@
 ﻿@model Equiposmd.Models.Mequipo
 @{
+    ViewData["Title"] = "Agregar Un Nuevo Equipo";
 }
 <!DOCTYPE html>
 <html>
@@ -39,114 +40,260 @@
         <h1 style="text-align: center;">Registrar nueva compra de equipo</h1>
         <form asp-action="Editar" method="post">
 
+
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Tipo</label>
-                    <input asp-for="Tipo" class="form-control">
+                    <h6>
+                        Tipo
+                        <small class="text-muted">D</small>
+                    </h6>
+                    <select asp-for="Tipo" class="form-control" disabled>
+                        <option value=""></option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Cpu">Cpu</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Impresora">Impresora</option>
+                        <option value="Tablet">Tablet</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Altavoz">Altavoz</option>
+                        <option value="Auriculares">Auriculares</option>
+                        <option value="Cámara">Cámara</option>
+                        <option value="Proyector">Proyector</option>
+                        <option value="Router">Router</option>
+                        <option value="Servidor">Servidor</option>
+                        <option value="Escáner">Escáner</option>
+                        <option value="Computadora de Escritorio">Computadora de Escritorio</option>
+                        <option value="Disco Duro">Disco Duro</option>
+                        <option value="Tarjeta de Video">Tarjeta de Video</option>
+                        <option value="Memoria RAM">Memoria RAM</option>
+                        <option value="Unidad de Estado Sólido (SSD)">Unidad de Estado Sólido (SSD)</option>
+                        <option value="Ordenador Portátil">Ordenador Portátil</option>
+                        <option value="Escáner de Documentos">Escáner de Documentos</option>
+                        <option value="Impresora Multifunción">Impresora Multifunción</option>
+                        <option value="Terminal Punto de Venta (TPV)">Terminal Punto de Venta (TPV)</option>
+                        <option value="Cajero Automático">Cajero Automático</option>
+                        <option value="Dispositivo de Seguridad Biométrica">Dispositivo de Seguridad Biométrica</option>
+                        <option value="Terminal de Autoconsulta">Terminal de Autoconsulta</option>
+                        <option value="Dispositivo de Firma Electrónica">Dispositivo de Firma Electrónica</option>
+                        <option value="Contador de Billetes">Contador de Billetes</option>
+                        <option value="Tarjeta de Identificación">Tarjeta de Identificación</option>
+                        <option value="Dispositivo de Almacenamiento Seguro">Dispositivo de Almacenamiento Seguro</option>
+                        <option value="Sistema de Videovigilancia">Sistema de Videovigilancia</option>
+                        <option value="Cámara de Seguridad">Cámara de Seguridad</option>
+                        <option value="Router de Seguridad">Router de Seguridad</option>
+                    </select>
                     <span asp-validation-for="Tipo" class="text-danger"></span>
                 </div>
 
+
+
                 <div class="form-group col-md-4">
-                    <label>Marca</label>
-                    <input asp-for="Marca" class="form-control">
+                    <h6>
+                        Marca
+                        <small class="text-muted"></small>
+                    </h6>
+                    <select asp-for="Marca" class="form-control" disabled>
+                        <option value=""></option>
+                        <option value="Hp">Hp</option>
+                        <option value="Dell">Dell</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="Acer">Acer</option>
+                        <option value="Asus">Asus</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Sony">Sony</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Toshiba">Toshiba</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="Panasonic">Panasonic</option>
+                        <option value="LG">LG</option>
+                        <option value="IBM">IBM</option>
+                        <option value="Gateway">Gateway</option>
+                        <option value="Fujitsu">Fujitsu</option>
+                        <option value="Compaq">Compaq</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Alienware">Alienware</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Huawei">Huawei</option>
+                        <option value="Google">Google</option>
+                        <option value="Razer">Razer</option>
+                        <option value="Corsair">Corsair</option>
+                    </select>
                     <span asp-validation-for="Marca" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>Modelo</label>
-                    <input asp-for="Modelo" class="form-control">
+                    <h6>
+                        Modelo
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Modelo" class="form-control" disabled>
                     <span asp-validation-for="Modelo" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Color</label>
-                    <input asp-for="Color" class="form-control">
+                    <h6>
+                        Color
+                        <small class="text-muted"></small>
+                    </h6>
+                    <select asp-for="Color" class="form-control" disabled>
+                        <option value=""></option>
+                        <option value="Rojo">Rojo</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Amarillo">Amarillo</option>
+                        <option value="Naranja">Naranja</option>
+                        <option value="Morado">Morado</option>
+                        <option value="Rosa">Rosa</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Marron">Marron</option>
+                        <option value="Celeste">Celeste</option>
+                        <option value="Turquesa">Turquesa</option>
+                        <option value="Oro">Oro</option>
+                        <option value="Plata">Plata</option>
+                        <option value="Violeta">Violeta</option>
+                        <option value="Cian">Cian</option>
+                        <option value="Lavanda">Lavanda</option>
+                        <option value="Cafe">Cafe</option>
+                        <option value="Esmeralda">Esmeralda</option>
+                        <option value="Coral">Coral</option>
+                        <option value="Granate">Granate</option>
+                        <option value="Turmalina">Turmalina</option>
+                        <option value="Zafiro">Zafiro</option>
+                        <option value="Ambar">Ambar</option>
+                        <option value="Indigo">Indigo</option>
+                        <option value="Aguamarina">Aguamarina</option>
+                        <option value="Carmesi">Carmesi</option>
+
+                    </select>
                     <span asp-validation-for="Color" class="text-danger"></span>
                 </div>
 
-                <<div class="form-group col-md-4">
-                    <label class="control-label">Seleccione la(s) condición(es) del equipo:</label>
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="Condicion" value="Nueva" class="form-check-input">
-                        <label class="form-check-label" asp-for="Condicion">Nueva</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="Condicion" value="Usada" class="form-check-input">
-                        <label class="form-check-label" asp-for="Condicion">Usada</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="Condicion" value="Dañada" class="form-check-input">
-                        <label class="form-check-label" asp-for="Condicion">Dañada</label>
-                    </div>
+                <div class="form-group col-md-4">
+                    <h6>
+                        Condicion
+                        <small class="text-muted"></small>
+                    </h6>
+                    <select asp-for="Condicion" class="form-control"disabled>
+                        <option value=""></option>
+                        <option value="Nueva">Nueva</option>
+                        <option value="Usada">Usada</option>
+                    </select>
                     <span asp-validation-for="Condicion" class="text-danger"></span>
                 </div>
 
 
                 <div class="form-group col-md-4">
-                    <label>Numero de activo</label>
-                    <input asp-for="Numero_de_activo" class="form-control">
+                    <h6>
+                        Numero de activo
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Numero_de_activo" class="form-control" disabled>
                     <span asp-validation-for="Numero_de_activo" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Numero serial</label>
-                    <input asp-for="Numero_serial" class="form-control">
+                    <h6>
+                        Numero serial
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Numero_serial" class="form-control" disabled>
                     <span asp-validation-for="Numero_serial" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>Fecha fabricacion</label>
-                    <input asp-for="Fecha_fabricacion" class="form-control">
+                    <h6>
+                        Fecha fabricacion
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Fecha_fabricacion" class="form-control" disabled>
                     <span asp-validation-for="Fecha_fabricacion" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>fecha de adquisicion</label>
-                    <input asp-for="fecha_adquisicion" class="form-control">
+                    <h6>
+                        fecha de adquisicion
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="fecha_adquisicion" class="form-control" disabled>
                     <span asp-validation-for="fecha_adquisicion" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Fecha de expiracion garantia 1</label>
-                    <input asp-for="Fecha_expiracion_garantia_1" class="form-control">
+                    <h6>
+                        Fecha expiracion garantia 1
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Fecha_expiracion_garantia_1" class="form-control" disabled>
                     <span asp-validation-for="Fecha_expiracion_garantia_1" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>Fecha expiracion garantia 2</label>
-                    <input asp-for="Fecha_expiracion_garantia_2" class="form-control">
+                    <h6>
+                        Fecha expiracion garantia 2
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Fecha_expiracion_garantia_2" class="form-control" disabled>
                     <span asp-validation-for="Fecha_expiracion_garantia_2" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>Fecha final de vida util</label>
-                    <input asp-for="Fecha_final_vida_util" class="form-control">
+                    <h6>
+                        Fecha final de vida util
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Fecha_final_vida_util" class="form-control" disabled>
                     <span asp-validation-for="Fecha_final_vida_util" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Fecha de descarte</label>
+
+                    <h6>
+                        Fecha de descarte
+                        <small class="text-muted"></small>
+                    </h6>
                     <input asp-for="Fecha_descarte" class="form-control">
                     <span asp-validation-for="Fecha_descarte" class="text-danger"></span>
                 </div>
 
+
+
                 <div class="form-group col-md-4">
-                    <label>Precio</label>
+                    <h6>
+                        Precio
+                        <small class="text-muted"></small>
+                    </h6>
                     <input asp-for="Precio" class="form-control">
                     <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="form-group col-md-4">
+                    <h6>
+                        Cantidad
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Cantidad" class="form-control">
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
                 </div>
             </div>
 
 
+
             <div class="form-group mt-3">
-                <button type="submit" class="btn btn-secondary d-block mx-auto">Crear</button>
+                <button type="submit" data-dismiss="modal" class="btn btn-primary d-block mx-auto">Crear</button>
             </div>
         </form>
-        <a asp-controller="GestionGeneral1" asp-action="Historialdeequipo" class="btn btn-link d-block text-center">Volver</a>
+        <a asp-controller="Home" asp-action="index" class="btn btn-link d-block text-center">Volver</a>
     </div>
 </body>
 </html>

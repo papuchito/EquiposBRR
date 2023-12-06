@@ -31,14 +31,13 @@
         </div>
     </div>
 </div>
-      
 
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card border">
                 <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h3 class="m-0"><strong>Lista De Solicitud De Equipo</strong></h3>
+                    <h3 class="m-0"><strong>Listas De Solicitud De Equipo</strong></h3>
                     <a asp-action="SolicitudEquipo" asp-controller="GestionGeneral" class="btn btn-secondary btn-sm">Nuevo Solicitud</a>
                 </div>
                 <div class="card-body">
@@ -57,14 +56,16 @@
                                         <th style="width: 10%">@Html.DisplayNameFor(m => m.TarjetaGrafica)</th>
                                         <th style="width: 10%">@Html.DisplayNameFor(m => m.Marca)</th>
                                         <th style="width: 12%">Acciones</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{
+                                        var counter = 1;
+                                    }
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@Html.DisplayFor(m => item.Id)</td>
+                                            <td>@counter</td>
                                             <td>@Html.DisplayFor(m => item.Areasolicitada)</td>
                                             <td>@Html.DisplayFor(m => item.TipoEquipo)</td>
                                             <td>@Html.DisplayFor(m => item.Procesador)</td>
@@ -77,6 +78,7 @@
                                                 <a class="btn btn-danger btn-sm" asp-action="Borrar" asp-route-id="@item.Id">Borrar</a>
                                             </td>
                                         </tr>
+                                        counter++;
                                     }
                                 </tbody>
                             </table>
@@ -92,23 +94,23 @@
     </div>
 </div>
 
-        @section Scripts {
-            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-            <script>
-                // Función para manejar el evento de clic en el botón de refrescar
-                function refreshData() {
-                    // Recarga la página actual
-                    location.reload();
-                }
-
-                // Función para manejar la búsqueda
-                function searchTable() {
-                    var searchText = $('#searchInput').val().toLowerCase();
-
-                    $('#tblUsuarios tbody tr').each(function () {
-                        var rowText = $(this).text().toLowerCase();
-                        $(this).toggle(rowText.includes(searchText));
-                    });
-                }
-            </script>
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Función para manejar el evento de clic en el botón de refrescar
+        function refreshData() {
+            // Recarga la página actual
+            location.reload();
         }
+
+        // Función para manejar la búsqueda
+        function searchTable() {
+            var searchText = $('#searchInput').val().toLowerCase();
+
+            $('#tblUsuarios tbody tr').each(function () {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(searchText));
+            });
+        }
+    </script>
+}

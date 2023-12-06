@@ -46,7 +46,7 @@
                         ID del equipo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Id_Equipo" class="form-control">
+                    <input asp-for="Id_Equipo" class="form-control" oninput="validarNumeroActivo(this)">
                     <span asp-validation-for="Id_Equipo" class="text-danger"></span>
                 </div>
 
@@ -63,7 +63,7 @@
                         Numero activo en el banco
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Numero_activo_del_banco" class="form-control">
+                    <input asp-for="Numero_activo_del_banco" class="form-control" oninput="validarNumeroActivo(this)">
                     <span asp-validation-for="Numero_activo_del_banco" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
@@ -83,6 +83,7 @@
                         <option value=""></option>
                         <option value="Monitor">Monitor</option>
                         <option value="Mouse">Mouse</option>
+                        <option value="Cpu">Cpu</option>
                         <option value="Teclado">Teclado</option>
                         <option value="Laptop">Laptop</option>
                         <option value="Impresora">Impresora</option>
@@ -162,3 +163,14 @@
     </div>
 </body>
 </html>
+@section Scripts {
+    <script>
+        function validarNumeroActivo(input) {
+            // Eliminar cualquier caracter que no sea un número, la letra 'E', o el número '0'
+            input.value = input.value.replace(/[^0-9Ee]|^0+/g, '');
+
+            // Convertir la letra 'E' ingresada a mayúscula
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+}

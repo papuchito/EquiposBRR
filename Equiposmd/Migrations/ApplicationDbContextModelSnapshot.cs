@@ -57,7 +57,7 @@ namespace Equiposmd.Migrations
                     b.ToTable("asignarAreaEquipos");
                 });
 
-            modelBuilder.Entity("Equiposmd.Models.EquiposAsignados", b =>
+            modelBuilder.Entity("Equiposmd.Models.AsignarEquipoEmpleado", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -81,10 +81,7 @@ namespace Equiposmd.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Fecha_de_adquisicion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Fecha_de_fabricacion")
+                    b.Property<DateTime>("Fecha_de_Asignacion")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ID_del_Equipo")
@@ -112,7 +109,7 @@ namespace Equiposmd.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("equiposAsignados");
+                    b.ToTable("asignarEquipoEmpleados");
                 });
 
             modelBuilder.Entity("Equiposmd.Models.HistorialEvento", b =>
@@ -158,8 +155,9 @@ namespace Equiposmd.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Numero_serial")
-                        .HasColumnType("int");
+                    b.Property<string>("Numero_serial")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SoftwareInstalado")
                         .IsRequired()
@@ -169,9 +167,8 @@ namespace Equiposmd.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("numero_de_activo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("numero_de_activo")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -242,23 +239,6 @@ namespace Equiposmd.Migrations
                     b.ToTable("mequipos");
                 });
 
-            modelBuilder.Entity("Equiposmd.Models.RegistrarMarcas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Marca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("registrarMarcas");
-                });
-
             modelBuilder.Entity("Equiposmd.Models.RegistroIndividual", b =>
                 {
                     b.Property<int>("Id")
@@ -274,6 +254,9 @@ namespace Equiposmd.Migrations
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id_Equipo")
+                        .HasColumnType("int");
 
                     b.Property<string>("Marca")
                         .IsRequired()
@@ -340,6 +323,75 @@ namespace Equiposmd.Migrations
                     b.ToTable("solicitudEquipos");
                 });
 
+            modelBuilder.Entity("Equiposmd.Models.TrasladarEquipo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Codigo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CodigoReceptor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Condicion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Marca")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Numero_de_activo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Numerodeserie")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observaciones")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Oficina")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ubicacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UnidadEmisora")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("trasladarEquipo");
+                });
+
             modelBuilder.Entity("Equiposmd.Models.suvar203", b =>
                 {
                     b.Property<int>("Id")
@@ -349,6 +401,9 @@ namespace Equiposmd.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Codigo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CodigoReceptor")
                         .HasColumnType("int");
 
                     b.Property<string>("Color")

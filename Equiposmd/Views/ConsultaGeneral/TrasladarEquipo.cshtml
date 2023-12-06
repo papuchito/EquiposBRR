@@ -1,0 +1,342 @@
+﻿@model Equiposmd.Models.TrasladarEquipo
+@{
+    ViewData["Title"] = "Agregar Un Nuevo Empleado";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de empleado</title>
+    <style>
+        .container {
+            margin-top: 7.5px;
+            padding: 7.5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor 1 -->
+    <div class="container">
+        <h1 style="text-align: right;">Traslado Mobiliario,Equipo y Obras De Arte</h1>
+        <form asp-action="TrasladarEquipo" method="post">
+
+            <div class="row">
+                <!-- Primera parte del formulario -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Unidad Emisora
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="UnidadEmisora" class="form-control">
+                        <span asp-validation-for="UnidadEmisora" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Codigo
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Codigo" class="form-control" oninput="validarNumeroActivo(this)">
+                        <span asp-validation-for="Codigo" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Fecha
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Fecha" class="form-control" type="date">
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Departamento/Ubicacion
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Ubicacion" class="form-control">
+                        <span asp-validation-for="Ubicacion" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Telefono
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Telefono" class="form-control">
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Oficina/Unidad receptora
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Oficina" class="form-control">
+                        <span asp-validation-for="Oficina" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Codigo
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="CodigoReceptor" class="form-control" oninput="validarNumeroActivo(this)">
+                        <span asp-validation-for="CodigoReceptor" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- Contenedor 2 -->
+            <div class="container">
+                <h1 style="text-align: left;">Mobiliario(s) Equipo(s) y/o Obras de Arte a Trasladar</h1>
+
+                <div class="row">
+                    <!-- Segunda parte del formulario -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Numero De Activo
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)">
+                            <span asp-validation-for="Numero_de_activo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Descripcion
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Descripcion" class="form-control">
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Modelo
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Modelo" class="form-control">
+                            <span asp-validation-for="Modelo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <h6>
+                            Marca
+                            <small class="text-muted"></small>
+                        </h6>
+                        <select asp-for="Marca" class="form-control">
+                            <option value=""></option>
+                            <option value="Hp">Hp</option>
+                            <option value="Dell">Dell</option>
+                            <option value="Lenovo">Lenovo</option>
+                            <option value="Acer">Acer</option>
+                            <option value="Asus">Asus</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Sony">Sony</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Toshiba">Toshiba</option>
+                            <option value="Microsoft">Microsoft</option>
+                            <option value="Panasonic">Panasonic</option>
+                            <option value="LG">LG</option>
+                            <option value="IBM">IBM</option>
+                            <option value="Gateway">Gateway</option>
+                            <option value="Fujitsu">Fujitsu</option>
+                            <option value="Compaq">Compaq</option>
+                            <option value="MSI">MSI</option>
+                            <option value="Alienware">Alienware</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="Google">Google</option>
+                            <option value="Razer">Razer</option>
+                            <option value="Corsair">Corsair</option>
+                            <option value="Philips">Philips</option>
+                            <option value="Bosch">Bosch</option>
+                            <option value="Dyson">Dyson</option>
+                            <option value="D-Link">D-Link</option>
+                            <option value="Linksys">Linksys</option>
+                            <option value="Netgear">Netgear</option>
+                            <option value="Canon">Canon</option>
+                            <option value="Nikon">Nikon</option>
+                            <option value="GoPro">GoPro</option>
+                            <option value="DJI">DJI</option>
+                            <option value="Garmin">Garmin</option>
+                            <option value="Fitbit">Fitbit</option>
+                            <option value="Xerox">Xerox</option>
+                            <option value="Lexmark">Lexmark</option>
+                            <option value="Bose">Bose</option>
+                            <option value="JBL">JBL</option>
+                            <option value="Sennheiser">Sennheiser</option>
+                            <option value="Audio-Technica">Audio-Technica</option>
+                            <option value="Western Digital">Western Digital</option>
+                            <option value="Seagate">Seagate</option>
+                            <option value="Sandisk">Sandisk</option>
+                            <option value="Logitech">Logitech</option>
+                            <option value="Intel">Intel</option>
+                            <option value="AMD">AMD</option>
+                            <option value="NVIDIA">NVIDIA</option>
+                            <option value="Kingston">Kingston</option>
+                            <option value="Crucial">Crucial</option>
+                            <option value="Adata">Adata</option>
+                            <option value="HyperX">HyperX</option>
+                            <option value="SteelSeries">SteelSeries</option>
+                            <option value="Roccat">Roccat</option>
+                            <option value="Cooler Master">Cooler Master</option>
+                            <option value="NZXT">NZXT</option>
+                            <option value="Fractal Design">Fractal Design</option>
+                            <option value="Thermaltake">Thermaltake</option>
+                            <option value="EVGA">EVGA</option>
+                            <option value="Gigabyte">Gigabyte</option>
+                            <option value="ASRock">ASRock</option>
+                            <option value="Biostar">Biostar</option>
+                            <option value="Raspberry Pi">Raspberry Pi</option>
+                            <option value="Arduino">Arduino</option>
+
+
+                        </select>
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Numero De Serie
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Numerodeserie" class="form-control">
+                            <span asp-validation-for="Numerodeserie" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <h6>
+                            Color
+                            <small class="text-muted"></small>
+                        </h6>
+                        <select asp-for="Color" class="form-control">
+                            <option value=""></option>
+                            <option value="Rojo">Rojo</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Verde">Verde</option>
+                            <option value="Amarillo">Amarillo</option>
+                            <option value="Naranja">Naranja</option>
+                            <option value="Morado">Morado</option>
+                            <option value="Rosa">Rosa</option>
+                            <option value="Gris">Gris</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Marron">Marron</option>
+                            <option value="Celeste">Celeste</option>
+                            <option value="Turquesa">Turquesa</option>
+                            <option value="Oro">Oro</option>
+                            <option value="Plata">Plata</option>
+                            <option value="Violeta">Violeta</option>
+                            <option value="Cian">Cian</option>
+                            <option value="Lavanda">Lavanda</option>
+                            <option value="Cafe">Cafe</option>
+                            <option value="Esmeralda">Esmeralda</option>
+                            <option value="Coral">Coral</option>
+                            <option value="Granate">Granate</option>
+                            <option value="Turmalina">Turmalina</option>
+                            <option value="Zafiro">Zafiro</option>
+                            <option value="Ambar">Ambar</option>
+                            <option value="Indigo">Indigo</option>
+                            <option value="Aguamarina">Aguamarina</option>
+                            <option value="Carmesi">Carmesi</option>
+
+                        </select>
+                        <span asp-validation-for="Color" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <h6>
+                            Condicion
+                            <small class="text-muted"></small>
+                        </h6>
+                        <select asp-for="Condicion" class="form-control">
+                            <option value=""></option>
+                            <option value="Nueva">Nueva</option>
+                            <option value="Usada">Usada</option>
+                            <option value="Dañada">Dañada</option>
+
+                        </select>
+                        <span asp-validation-for="Condicion" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Observaciones
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Observaciones" class="form-control">
+                            <span asp-validation-for="Observaciones" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-secondary d-block mx-auto">Crear</button>
+            </div>
+        </form>
+
+        <a asp-controller="Home" asp-action="Historialdeequipo" class="btn btn-link d-block text-center">Volver</a>
+    </div>
+
+</body>
+</html>
+@section Scripts {
+    <script>
+        function validarNumeroActivo(input) {
+            // Eliminar cualquier caracter que no sea un número, la letra 'E', o el número '0'
+            input.value = input.value.replace(/[^0-9Ee]|^0+/g, '');
+
+            // Convertir la letra 'E' ingresada a mayúscula
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+}

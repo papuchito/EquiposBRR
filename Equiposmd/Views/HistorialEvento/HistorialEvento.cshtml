@@ -38,7 +38,7 @@
 <body>
     <div class="container">
         <h1 style="text-align: center;">Registrar Un Nuevo Evento</h1>
-        <form asp-action="" method="post">
+        <form asp-action="ListaDeEvento" method="post">
 
             <div class="row">
                 <div class="form-group col-md-4">
@@ -46,7 +46,7 @@
                         Numero De Serial
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Numero_serial" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="Numero_serial" class="form-control">
                     <span asp-validation-for="Numero_serial" class="text-danger"></span>
                 </div>
 
@@ -55,16 +55,16 @@
                         Numero de activo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="numero_de_activo" class="form-control" oninput="validarNumeroActivo(input)">
                     <span asp-validation-for="numero_de_activo" class="text-danger"></span>
-                </div>   
+                </div>
 
                 <div class="form-group col-md-4">
                     <h6>
                         Fecha
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha" class="form-control">
+                    <input asp-for="Fecha" class="form-control" type="date">
                     <span asp-validation-for="Fecha" class="text-danger"></span>
                 </div>
 
@@ -76,7 +76,7 @@
                     <input asp-for="TipoEvento" class="form-control">
                     <span asp-validation-for="TipoEvento" class="text-danger"></span>
                 </div>
-          
+
                 <div class="form-group col-md-4">
                     <h6>
                         Detalles
@@ -103,7 +103,7 @@
                     <input asp-for="AreaOrigen" class="form-control">
                     <span asp-validation-for="AreaOrigen" class="text-danger"></span>
                 </div>
-           
+
                 <div class="form-group col-md-4">
                     <h6>
                         AreaDestino
@@ -131,7 +131,7 @@
                     <span asp-validation-for="DetallesMantenimiento" class="text-danger"></span>
                 </div>
 
-                <div class="form-group col-md-4">                    
+                <div class="form-group col-md-4">
                     <h6>
                         DetallesReparacion
                         <small class="text-muted"></small>
@@ -158,7 +158,7 @@
                     <span asp-validation-for="CausaDaño" class="text-danger"></span>
                 </div>
             </div>
-            
+
 
 
 

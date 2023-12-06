@@ -141,16 +141,18 @@ namespace Equiposmd.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> RegistrarMarca(RegistrarMarcas registrarMarcas)
+        public async Task<IActionResult> RegistrarMarca(RegistroIndividual registroIndividual)
         {
             if (ModelState.IsValid)
             {
-                _contexto.registrarMarcas.Add(registrarMarcas);
+                _contexto.registroindividuals.Add(registroIndividual);
                 await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction(nameof(DetalleE));
             }
 
-            return View("Index");
+            return View();
         }
+
+
     }
 }

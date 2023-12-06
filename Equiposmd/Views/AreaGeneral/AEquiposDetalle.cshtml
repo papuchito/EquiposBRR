@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Equiposmd.Models.AsignarAreaEquipo>
 
 <h1 class="Detalles"></h1>
+
 <div class="container mt-2">
     <div class="row justify-content-center my-2">
         <div class="col-md-4 custom-form-bar">
@@ -18,7 +19,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -46,17 +46,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{
+                                        var contador = 1;
+                                    }
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@item.Id</td>
+                                            <td>@contador</td>
                                             <td>@item.Id_Equipo</td>
                                             <td>@item.Numero_serial</td>
                                             <td>@item.Numero_activo_del_banco</td>
                                             <td>@item.Area_Asignada</td>
                                             <td>@item.Tipo</td>
                                             <td>@item.Marca</td>
-                                            
+
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
@@ -65,6 +68,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        contador++;
                                     }
                                 </tbody>
                             </table>
@@ -79,6 +83,7 @@
         </div>
     </div>
 </div>
+
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -98,5 +103,17 @@
                 $(this).toggle(rowText.includes(searchText));
             });
         }
+
+        // Agregar el contador
+        function updateCounter() {
+            $('.contador').each(function (index) {
+                $(this).text(index + 1);
+            });
+        }
+
+        // Llamar a la función al cargar la página
+        $(document).ready(function () {
+            updateCounter();
+        });
     </script>
 }

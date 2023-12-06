@@ -21,13 +21,12 @@
     </div>
 </div>
 
-
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card border">
                 <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h3 class="m-0"><strong>Historial Y Eventos Del Equipo</strong></h3>
+                    <h3 class="m-0"><strong>Lista De Equipos</strong></h3>
                     <a asp-action="RegistroIndividual" asp-controller="EquipoGeneral" class="btn btn-secondary btn-sm">Nuevo Equipo</a>
                 </div>
                 <div class="card-body">
@@ -49,10 +48,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{
+                                        var contador = 1;
+                                    }
                                     @foreach (var (item, index) in Model.Select((item, index) => (item, index)))
                                     {
                                         <tr>
-                                            <td>@(index + 1)</td>
+                                            <td>@(contador + index)</td>
                                             <td>@Html.DisplayFor(m => item.Tipo)</td>
                                             <td>@Html.DisplayFor(m => item.Marca)</td>
                                             <td>@Html.DisplayFor(m => item.Modelo)</td>
@@ -62,7 +64,7 @@
                                             <td>@Html.DisplayFor(m => item.Color)</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                                                    <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id">Detalle</a>
                                                     <a class="btn btn-warning btn-sm" asp-controller="HistorialEvento" asp-action="ListaDeEvento" asp-route-id="@item.Id">ListaEvento</a>
                                                 </div>
                                             </td>

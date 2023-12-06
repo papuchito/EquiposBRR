@@ -50,6 +50,7 @@
                             <select asp-for="Tipo" class="form-control">
                                 <option value=""></option>
                                 <option value="Monitor">Monitor</option>
+                                <option value="Cpu">Cpu</option>
                                 <option value="Mouse">Mouse</option>
                                 <option value="Teclado">Teclado</option>
                                 <option value="Laptop">Laptop</option>
@@ -174,20 +175,14 @@
 
                 <div class="form-group col-md-4">
                     <h6>
-                        Seleccione la(s) condición(es) del equipo  <small class="text-muted"></small>
+                        Condicion
+                        <small class="text-muted"></small>
                     </h6>
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="Condicion" value="Nueva" class="form-check-input">
-                        <label class="form-check-label" asp-for="Condicion">Nueva</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="Condicion" value="Usada" class="form-check-input">
-                        <label class="form-check-label" asp-for="Condicion">Usada</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="Condicion" value="Dañada" class="form-check-input">
-                        <label class="form-check-label" asp-for="Condicion">Dañada</label>
-                    </div>
+                    <select asp-for="Condicion" class="form-control">
+                        <option value=""></option>
+                        <option value="Nueva">Nueva</option>
+                        <option value="Usada">Usada</option>
+                    </select>
                     <span asp-validation-for="Condicion" class="text-danger"></span>
                 </div>
 
@@ -197,7 +192,7 @@
                         Numero de activo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Numero_de_activo" class="form-control">
+                    <input asp-for="Numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)">
                     <span asp-validation-for="Numero_de_activo" class="text-danger"></span>
                 </div>
             </div>
@@ -216,7 +211,7 @@
                         Fecha fabricacion
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_fabricacion" class="form-control">
+                    <input asp-for="Fecha_fabricacion" class="form-control" type="date">
                     <span asp-validation-for="Fecha_fabricacion" class="text-danger"></span>
                 </div>
 
@@ -225,7 +220,7 @@
                         fecha de adquisicion
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="fecha_adquisicion" class="form-control">
+                    <input asp-for="fecha_adquisicion" class="form-control" type="date">
                     <span asp-validation-for="fecha_adquisicion" class="text-danger"></span>
                 </div>
             </div>
@@ -235,7 +230,7 @@
                         Fecha expiracion garantia 1
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_expiracion_garantia_1" class="form-control">
+                    <input asp-for="Fecha_expiracion_garantia_1" class="form-control" type="date">
                     <span asp-validation-for="Fecha_expiracion_garantia_1" class="text-danger"></span>
                 </div>
 
@@ -244,7 +239,7 @@
                         Fecha expiracion garantia 2
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_expiracion_garantia_2" class="form-control">
+                    <input asp-for="Fecha_expiracion_garantia_2" class="form-control" type="date">
                     <span asp-validation-for="Fecha_expiracion_garantia_2" class="text-danger"></span>
                 </div>
 
@@ -253,7 +248,7 @@
                         Fecha final de vida util
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_final_vida_util" class="form-control">
+                    <input asp-for="Fecha_final_vida_util" class="form-control" type="date">
                     <span asp-validation-for="Fecha_final_vida_util" class="text-danger"></span>
                 </div>
             </div>
@@ -265,7 +260,7 @@
                         Fecha de descarte
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_descarte" class="form-control">
+                    <input asp-for="Fecha_descarte" class="form-control" type="date">
                     <span asp-validation-for="Fecha_descarte" class="text-danger"></span>
                 </div>
            
@@ -276,7 +271,7 @@
                         Precio
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Precio" class="form-control">
+                    <input asp-for="Precio" class="form-control" oninput="validarNumeroActivo(this)">
                     <span asp-validation-for="Precio" class="text-danger"></span>
                 </div>
 
@@ -287,7 +282,7 @@
                         Cantidad
                         <small class="text-muted"></small>
                     </h6>
-                <input asp-for="Cantidad" class="form-control">
+                    <input asp-for="Cantidad" class="form-control" oninput="validarNumeroActivo(this)">
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
             </div>
                  </div>
@@ -302,3 +297,14 @@
     </div>
 </body>
 </html>
+@section Scripts {
+    <script>
+        function validarNumeroActivo(input) {
+            // Eliminar cualquier caracter que no sea un número, la letra 'E', o el número '0'
+            input.value = input.value.replace(/[^0-9Ee]|^0+/g, '');
+
+            // Convertir la letra 'E' ingresada a mayúscula
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+}

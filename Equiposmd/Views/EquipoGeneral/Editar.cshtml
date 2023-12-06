@@ -40,71 +40,178 @@
     <div class="container">
         <h1 style="text-align: center;">Registrar Un Nuevo Equipo</h1>
         <form asp-action="Editar" method="post">
-
+            
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Tipo</label>
-                    <select asp-for="Tipo" class="form-control">
+                    <h6>
+                        Tipo
+                        <small class="text-muted"></small>
+                    </h6>
+                    <select asp-for="Tipo" class="form-control" disabled>
                         <option value=""></option>
                         <option value="Monitor">Monitor</option>
-                        <option value="MOUSE">MOUSE</option>
-                        <option value="TECLADO">TECLADO</option>
+                        <option value="Cpu">Cpu</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Impresora">Impresora</option>
+                        <option value="Tablet">Tablet</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Altavoz">Altavoz</option>
+                        <option value="Auriculares">Auriculares</option>
+                        <option value="Cámara">Cámara</option>
+                        <option value="Proyector">Proyector</option>
+                        <option value="Router">Router</option>
+                        <option value="Servidor">Servidor</option>
+                        <option value="Escáner">Escáner</option>
+                        <option value="Computadora de Escritorio">Computadora de Escritorio</option>
+                        <option value="Disco Duro">Disco Duro</option>
+                        <option value="Tarjeta de Video">Tarjeta de Video</option>
+                        <option value="Memoria RAM">Memoria RAM</option>
+                        <option value="Unidad de Estado Sólido (SSD)">Unidad de Estado Sólido (SSD)</option>
+                        <option value="Ordenador Portátil">Ordenador Portátil</option>
+                        <option value="Escáner de Documentos">Escáner de Documentos</option>
+                        <option value="Impresora Multifunción">Impresora Multifunción</option>
+                        <option value="Terminal Punto de Venta (TPV)">Terminal Punto de Venta (TPV)</option>
+                        <option value="Cajero Automático">Cajero Automático</option>
+                        <option value="Dispositivo de Seguridad Biométrica">Dispositivo de Seguridad Biométrica</option>
+                        <option value="Terminal de Autoconsulta">Terminal de Autoconsulta</option>
+                        <option value="Dispositivo de Firma Electrónica">Dispositivo de Firma Electrónica</option>
+                        <option value="Contador de Billetes">Contador de Billetes</option>
+                        <option value="Tarjeta de Identificación">Tarjeta de Identificación</option>
+                        <option value="Dispositivo de Almacenamiento Seguro">Dispositivo de Almacenamiento Seguro</option>
+                        <option value="Sistema de Videovigilancia">Sistema de Videovigilancia</option>
+                        <option value="Cámara de Seguridad">Cámara de Seguridad</option>
+                        <option value="Router de Seguridad">Router de Seguridad</option>
                     </select>
                     <span asp-validation-for="Tipo" class="text-danger"></span>
                 </div>
 
+
                 <div class="form-group col-md-4">
-                    <label>Marca</label>
-                    <select asp-for="Marca" class="form-control">
+                    <h6>
+                        Marca
+                        <small class="text-muted"></small>
+                    </h6>
+                    <select asp-for="Marca" class="form-control" disabled>
                         <option value=""></option>
                         <option value="Hp">Hp</option>
                         <option value="Dell">Dell</option>
                         <option value="Lenovo">Lenovo</option>
+                        <option value="Acer">Acer</option>
+                        <option value="Asus">Asus</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Sony">Sony</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Toshiba">Toshiba</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="Panasonic">Panasonic</option>
+                        <option value="LG">LG</option>
+                        <option value="IBM">IBM</option>
+                        <option value="Gateway">Gateway</option>
+                        <option value="Fujitsu">Fujitsu</option>
+                        <option value="Compaq">Compaq</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Alienware">Alienware</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Huawei">Huawei</option>
+                        <option value="Google">Google</option>
+                        <option value="Razer">Razer</option>
+                        <option value="Corsair">Corsair</option>
+                        <option value="Philips">Philips</option>
+                        <option value="Bosch">Bosch</option>
+                        <option value="Dyson">Dyson</option>
+                        <option value="D-Link">D-Link</option>
+                        <option value="Linksys">Linksys</option>
+                        <option value="Netgear">Netgear</option>
+                        <option value="Canon">Canon</option>
+                        <option value="Nikon">Nikon</option>
+                        <option value="GoPro">GoPro</option>
+                        <option value="DJI">DJI</option>
+                        <option value="Garmin">Garmin</option>
+                        <option value="Fitbit">Fitbit</option>
+                        <option value="Xerox">Xerox</option>
+                        <option value="Lexmark">Lexmark</option>
+                        <option value="Bose">Bose</option>
+                        <option value="JBL">JBL</option>
+                        <option value="Sennheiser">Sennheiser</option>
+                        <option value="Audio-Technica">Audio-Technica</option>
+                        <option value="Western Digital">Western Digital</option>
+                        <option value="Seagate">Seagate</option>
+                        <option value="Sandisk">Sandisk</option>
+                        <option value="Logitech">Logitech</option>
+                        <option value="Intel">Intel</option>
+                        <option value="AMD">AMD</option>
+                        <option value="NVIDIA">NVIDIA</option>
+                        <option value="Kingston">Kingston</option>
+                        <option value="Crucial">Crucial</option>
+                        <option value="Adata">Adata</option>
+                        <option value="HyperX">HyperX</option>
+                        <option value="SteelSeries">SteelSeries</option>
+                        <option value="Roccat">Roccat</option>
+                        <option value="Cooler Master">Cooler Master</option>
+                        <option value="NZXT">NZXT</option>
+                        <option value="Fractal Design">Fractal Design</option>
+                        <option value="Thermaltake">Thermaltake</option>
+                        <option value="EVGA">EVGA</option>
+                        <option value="Gigabyte">Gigabyte</option>
+                        <option value="ASRock">ASRock</option>
+                        <option value="Biostar">Biostar</option>
+                        <option value="Raspberry Pi">Raspberry Pi</option>
+                        <option value="Arduino">Arduino</option>
+
+
                     </select>
                     <span asp-validation-for="Marca" class="text-danger"></span>
                 </div>
 
+
+
                 <div class="form-group col-md-4">
-                    <label>Modelo</label>
-                    <select asp-for="Modelo" class="form-control">
-                        <option value=""></option>
-                        <option value="Hp">Hp</option>
-                        <option value="Dell">Dell</option>
-                        <option value="Lenovo">Lenovo</option>
-                    </select>
+                    <h6>
+                        Modelo
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Modelo" class="form-control" disabled />
                     <span asp-validation-for="Modelo" class="text-danger"></span>
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Número de activo del banco</label>
-                    <input asp-for="Número_de_activo_del_banco" class="form-control" oninput="validarNumeroActivo(this)">
+                        <h6>
+                            Número de activo del banco
+                            <small class="text-muted"></small>
+                        </h6>
+                    <input asp-for="Número_de_activo_del_banco" class="form-control" oninput="validarNumeroActivo(input)" disabled>
                     <span asp-validation-for="Número_de_activo_del_banco" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>Número serial</label>
-                    <input asp-for="Número_serial_de_fábrica" class="form-control">
+                        <h6>
+                            Número serial
+                            <small class="text-muted"></small>
+                        </h6>
+                    <input asp-for="Número_serial_de_fábrica" class="form-control" disabled>
                     <span asp-validation-for="Número_serial_de_fábrica" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label>Estado</label>
-                    <select asp-for="Estado" class="form-control">
+                        <h6>
+                            Estado
+                            <small class="text-muted"></small>
+                        </h6>
+                    <select asp-for="Estado" class="form-control" disabled>
                         <option value=""></option>
                         <option value="Activo">Activo</option>
-                        <option value="Inactivo">Inactivo</option>
-                        <option value="En reparación">En reparación</option>
                     </select>
                     <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="form-group col-md-4">
-                    <label>Color</label>
-                    <select asp-for="Color" class="form-control">
+                    <h6>
+                        Color
+                        <small class="text-muted"></small>
+                    </h6>
+                    <select asp-for="Color" class="form-control" disabled>
                         <option value=""></option>
                         <option value="Rojo">Rojo</option>
                         <option value="Azul">Azul</option>
@@ -134,6 +241,7 @@
                         <option value="Indigo">Indigo</option>
                         <option value="Aguamarina">Aguamarina</option>
                         <option value="Carmesi">Carmesi</option>
+
                     </select>
                     <span asp-validation-for="Color" class="text-danger"></span>
                 </div>
