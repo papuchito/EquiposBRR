@@ -50,7 +50,7 @@
                                         <th style="width: 3%">@Html.DisplayNameFor(m => m.Id)</th>
                                         <th style="width: 8%">@Html.DisplayNameFor(m => m.UnidadEmisora)</th>
                                         <th style="width: 2%">@Html.DisplayNameFor(m => m.Codigo)</th>
-                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Fecha)</th>
+                                        <th style="width: 10%">@Html.DisplayNameFor(m => m.Fecha)</th>
                                         <th style="width: 5%">@Html.DisplayNameFor(m => m.Ubicacion)</th>
                                         <th style="width: 5%">@Html.DisplayNameFor(m => m.Telefono)</th>
                                         <th style="width: 5%">@Html.DisplayNameFor(m => m.Oficina)</th>
@@ -63,7 +63,7 @@
                                         <th style="width: 2%">@Html.DisplayNameFor(m => m.Color)</th>
                                         <th style="width: 8%">@Html.DisplayNameFor(m => m.Condicion)</th>
                                         <th style="width: 8%">@Html.DisplayNameFor(m => m.Observaciones)</th>
-                                        <th style="width: 20%">Acciones</th>
+                                        <th style="width: 25%">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,7 +76,7 @@
                                             <td>@contador</td>
                                             <td>@Html.DisplayFor(m => item.UnidadEmisora)</td>
                                             <td>@Html.DisplayFor(m => item.Codigo)</td>
-                                            <td>@Html.DisplayFor(m => item.Fecha)</td>
+                                            <td>@item.Fecha.ToString("yyyy-MM-dd")</td>
                                             <td>@Html.DisplayFor(m => item.Ubicacion)</td>
                                             <td>@Html.DisplayFor(m => item.Telefono)</td>
                                             <td>@Html.DisplayFor(m => item.Oficina)</td>
@@ -91,8 +91,12 @@
                                             <td>@Html.DisplayFor(m => item.Observaciones)</td>
 
                                             <td>
-                                                <a class="btn btn-warning btn-sm" asp-action="Imprimir" asp-route-id="@item.Id">Imprimir Descarte </a>
+                                                <div class="btn-group">
+                                                    <a class="btn btn-warning btn-sm" asp-controller="ConsultaGeneral" asp-action="DetalleDescarte" asp-route-id="@item.Id">DetalleDescarte</a>
+                                                    <a class="btn btn-info btn-sm" asp-controller="ConsultaGeneral" asp-action="Imprimir" asp-route-id="@item.Id">Imprimir Descarte</a>
+                                                </div>
                                             </td>
+
                                         </tr>
                                         contador++;
                                     }

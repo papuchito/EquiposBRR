@@ -15,19 +15,7 @@ namespace Equiposmd.Controllers
         {
             _contexto = contexto;
         }
-        
-       
 
-        
-        
-     
-    
-   
-        
-       
-        
-       
-        
         public IActionResult Onigrama()
         {
             return View();

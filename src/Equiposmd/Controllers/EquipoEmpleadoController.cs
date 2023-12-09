@@ -18,6 +18,7 @@ namespace Equiposmd.Controllers
         {
             return View();
         }
+      
         public async Task<IActionResult> EAsignar(AsignarEquipoEmpleado asignarEquipoEmpleado)
         {
             if (ModelState.IsValid)
@@ -37,12 +38,6 @@ namespace Equiposmd.Controllers
             {
                 asignarEquipoEmpleados = asignarEquipoEmpleados
                     .Where(s => s.ID_del_Equipo.ToString().Contains(searchString)
-                                || s.Tipo.Contains(searchString)
-                                || s.Marca.Contains(searchString)
-                                || s.Condicion.Contains(searchString)
-                                || s.Modelo.Contains(searchString)
-                                || s.Numero_de_serie.Contains(searchString)
-                                || s.Color.Contains(searchString)
                                 || s.Fecha_de_Asignacion.ToString("yyyy-MM-dd").Contains(searchString)
                                 || s.Estado.Contains(searchString)
                                 || s.Ubicación_Actual.Contains(searchString)
@@ -54,6 +49,31 @@ namespace Equiposmd.Controllers
             }
 
             return View(asignarEquipoEmpleados);
+        }
+        public IActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var asignarEquipoEmpleados = _contexto.asignarEquipoEmpleados.Find(id);
+            if (asignarEquipoEmpleados == null)
+            {
+                return NotFound();
+            }
+            return View(asignarEquipoEmpleados);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Editar(AsignarEquipoEmpleado asignarEquipoEmpleado)
+        {
+            if (ModelState.IsValid)
+            {
+                _contexto.Update(asignarEquipoEmpleado);
+                await _contexto.SaveChangesAsync();
+                return RedirectToAction(nameof(InformacionA));
+            }
+            return View();
         }
     }
 }

@@ -7,10 +7,32 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Equiposmd.styles.css" asp-append-version="true" />
-</head>
+    <style>
+
+        .navbar-light {
+            background-image: url('https://pbs.twimg.com/media/EfQNkaKXoAAiOUo?format=jpg&name=4096x4096'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+
+            .navbar-light .navbar-nav .nav-link {
+                color: #ffffff;
+            }
+
+            .navbar-light .navbar-nav .nav-item.active .nav-link,
+            .navbar-light .navbar-nav .nav-item.show .nav-link {
+                color: #007bff; 
+            }
+
+            .navbar-light .navbar-nav .nav-link:hover {
+                color: #0056b3; 
+            }
+    </style>
+    </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-marino border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Equiposmd</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,77 +42,62 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"></a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"></a>
                         </li>
-                       
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Registro y Gestión de Equipos                            </a>
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Registro y Gestión de Equipos
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="http://localhost:5018/EquipoGeneral/RegistroIndividual">Registro De Equipos</a>
                                 <a class="dropdown-item" href="http://localhost:5018/EquipoGeneral/RegistrarMarcas">Registrar Marcas</a>
                                 <a class="dropdown-item" href="http://localhost:5018/HistorialEvento/ListaDeEvento">Historial y Eventos de Equipos</a>
                                 <a class="dropdown-item" href="http://localhost:5018/EquipoGeneral/DetalleE">Lista De Equipos</a>
-
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Gestión de Áreas
-
-
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="http://localhost:5018/AreaGeneral/AsignarAEquipo">Asignar Area A Equipo</a>
                                 <a class="dropdown-item" href="http://localhost:5018/AreaGeneral/AEquiposDetalle">Modificación De Información Asignacion De Equipos</a>
-                                <a class="dropdown-item" href="http://localhost:5018/ConsultaGeneral/SolicitudTraslado">Trasladar Equipo De Area</a>
-
-
-
+                                <a class="dropdown-item" href="http://localhost:5018/AreaGeneral/SolicitudTraslado">Trasladar Equipo De Area</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Registro y Asignación de Empleados
-
-
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="http://localhost:5018/EquipoEmpleado/EmpleadoEasignado">Asignación de Equipos por Empleado</a>
                                 <a class="dropdown-item" href="http://localhost:5018/EquipoEmpleado/InformacionA">Informacion De Los Equipos Asignados</a>
-
-                                
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Gestión de Solicitudes de Equipos
-
-
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Gestión de Solicitudes de Equipos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="http://localhost:5018/GestionGeneral1/ModeloEquipo">Registro de Compras</a>
                                 <a class="dropdown-item" href="http://localhost:5018/GestionGeneral1/Historialdeequipo">Historial de Compras</a>
                                 <a class="dropdown-item" href="http://localhost:5018/GestionGeneral/SolicitudEquipo"> Solicitud De Equipo</a>
-                                <a class="dropdown-item" href="http://localhost:5018/GestionGeneral/ListaSolicitudes">Historial de Solicitud</a>  
+                                <a class="dropdown-item" href="http://localhost:5018/GestionGeneral/ListaSolicitudes">Historial de Solicitud</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Consultas y Reportes
-
-
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Consultas y Reportes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="http://localhost:5018/ConsultaGeneral/suvar203">Descartes De Equipos</a>
                                 <a class="dropdown-item" href="http://localhost:5018/ConsultaGeneral/suvar203Info">Generación de Reportes</a>
-
-
-
-                            </div>         
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -104,7 +111,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - Equiposmd -Nehemias Alexander</a>
+            &copy; 2023 - Equiposmd - Nehemias Alexander
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

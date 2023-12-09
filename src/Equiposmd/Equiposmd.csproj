@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\images\buena.jpg" />
+    <None Include="wwwroot\images\firmasuuvar203.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,12 +25,20 @@
     <PackageReference Include="System.IO.FileSystem.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Text.Encoding.Extensions" Version="4.3.0" />
-	<PackageReference Include="PDFsharp" Version="6.0.0" />
+    <PackageReference Include="PDFsharp" Version="6.0.0" />
 
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="images\" />
+    <None Update="LibreriaPDF\libwkhtmltox.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="LibreriaPDF\libwkhtmltox.dylib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="LibreriaPDF\libwkhtmltox.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

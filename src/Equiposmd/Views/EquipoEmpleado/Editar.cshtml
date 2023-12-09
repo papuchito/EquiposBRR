@@ -1,0 +1,108 @@
+﻿@model Equiposmd.Models.AsignarEquipoEmpleado
+@{
+    ViewData["Title"] = "Agregar Un Nuevo Equipo";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Equipo</title>
+    <style>
+        /* Estilos para el formulario */
+        .container {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px; /* Nuevo estilo para el margen inferior */
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Asignar equipo a un empleado</h1>
+        <form asp-action="Editar" method="post">
+
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <h6>
+                        ID del Equipo
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="ID_del_Equipo" class="form-control" oninput="validarNumeroActivo(this)">
+                    <span asp-validation-for="ID_del_Equipo" class="text-danger"></span>
+                </div>              
+
+                <div class="form-group col-md-4">
+                    <h6>
+                        Fecha de asignacion
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Fecha_de_Asignacion" class="form-control" type="date">
+                    <span asp-validation-for="Fecha_de_Asignacion" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <h6>
+                        Estado
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Estado" class="form-control">
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <h6>
+                        Ubicación Actual
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Ubicación_Actual" class="form-control">
+                    <span asp-validation-for="Ubicación_Actual" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <h6>
+                        Asignado
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Asignado" class="form-control">
+                    <span asp-validation-for="Asignado" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary d-block mx-auto">Crear</button>
+            </div>
+        </form>
+        <a asp-controller="Home" asp-action="Historialdeequipo" class="btn btn-link d-block text-center">Volver</a>
+    </div>
+</body>
+</html>
+@section Scripts {
+    <script>
+        function validarNumeroActivo(input) {
+            // Eliminar cualquier caracter que no sea un número, la letra 'E', o el número '0'
+            input.value = input.value.replace(/[^0-9Ee]|^0+/g, '');
+
+            // Convertir la letra 'E' ingresada a mayúscula
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+}

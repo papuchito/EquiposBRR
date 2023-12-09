@@ -41,7 +41,7 @@
         <form asp-action="AsignarAEquipo1" method="post">
 
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-8">
                     <h6>
                         ID del equipo
                         <small class="text-muted"></small>
@@ -50,23 +50,9 @@
                     <span asp-validation-for="Id_Equipo" class="text-danger"></span>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <h6>
-                    Numero De Serial
-                        <small class="text-muted"></small>
-                    </h6>
-                    <input asp-for="Numero_serial" class="form-control">
-                    <span asp-validation-for="Numero_serial" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-4">
-                    <h6>
-                        Numero activo en el banco
-                        <small class="text-muted"></small>
-                    </h6>
-                    <input asp-for="Numero_activo_del_banco" class="form-control" oninput="validarNumeroActivo(this)">
-                    <span asp-validation-for="Numero_activo_del_banco" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-4">
+                <div class="row">
+
+                <div class="form-group col-md-8">
                     <h6>
                         Area Asignada
                         <small class="text-muted"></small>
@@ -74,86 +60,9 @@
                     <input asp-for="Area_Asignada" class="form-control">
                     <span asp-validation-for="Area_Asignada" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
-                    <h6>
-                        Tipo
-                        <small class="text-muted"></small>
-                    </h6>
-                    <select asp-for="Tipo" class="form-control">
-                        <option value=""></option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Mouse">Mouse</option>
-                        <option value="Cpu">Cpu</option>
-                        <option value="Teclado">Teclado</option>
-                        <option value="Laptop">Laptop</option>
-                        <option value="Impresora">Impresora</option>
-                        <option value="Tablet">Tablet</option>
-                        <option value="Smartphone">Smartphone</option>
-                        <option value="Altavoz">Altavoz</option>
-                        <option value="Auriculares">Auriculares</option>
-                        <option value="Cámara">Cámara</option>
-                        <option value="Proyector">Proyector</option>
-                        <option value="Router">Router</option>
-                        <option value="Servidor">Servidor</option>
-                        <option value="Escáner">Escáner</option>
-                        <option value="Computadora de Escritorio">Computadora de Escritorio</option>
-                        <option value="Disco Duro">Disco Duro</option>
-                        <option value="Tarjeta de Video">Tarjeta de Video</option>
-                        <option value="Memoria RAM">Memoria RAM</option>
-                        <option value="Unidad de Estado Sólido (SSD)">Unidad de Estado Sólido (SSD)</option>
-                        <option value="Ordenador Portátil">Ordenador Portátil</option>
-                        <option value="Escáner de Documentos">Escáner de Documentos</option>
-                        <option value="Impresora Multifunción">Impresora Multifunción</option>
-                        <option value="Terminal Punto de Venta (TPV)">Terminal Punto de Venta (TPV)</option>
-                        <option value="Cajero Automático">Cajero Automático</option>
-                        <option value="Dispositivo de Seguridad Biométrica">Dispositivo de Seguridad Biométrica</option>
-                        <option value="Terminal de Autoconsulta">Terminal de Autoconsulta</option>
-                        <option value="Dispositivo de Firma Electrónica">Dispositivo de Firma Electrónica</option>
-                        <option value="Contador de Billetes">Contador de Billetes</option>
-                        <option value="Tarjeta de Identificación">Tarjeta de Identificación</option>
-                        <option value="Dispositivo de Almacenamiento Seguro">Dispositivo de Almacenamiento Seguro</option>
-                        <option value="Sistema de Videovigilancia">Sistema de Videovigilancia</option>
-                        <option value="Cámara de Seguridad">Cámara de Seguridad</option>
-                        <option value="Router de Seguridad">Router de Seguridad</option>
-                    </select>
-                    <span asp-validation-for="Tipo" class="text-danger"></span>
                 </div>
 
-
-
-                <div class="form-group col-md-4">
-                    <h6>
-                        Marca
-                        <small class="text-muted"></small>
-                    </h6>
-                    <select asp-for="Marca" class="form-control">
-                        <option value=""></option>
-                        <option value="Hp">Hp</option>
-                        <option value="Dell">Dell</option>
-                        <option value="Lenovo">Lenovo</option>
-                        <option value="Acer">Acer</option>
-                        <option value="Asus">Asus</option>
-                        <option value="Apple">Apple</option>
-                        <option value="Sony">Sony</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="Toshiba">Toshiba</option>
-                        <option value="Microsoft">Microsoft</option>
-                        <option value="Panasonic">Panasonic</option>
-                        <option value="LG">LG</option>
-                        <option value="IBM">IBM</option>
-                        <option value="Gateway">Gateway</option>
-                        <option value="Fujitsu">Fujitsu</option>
-                        <option value="Compaq">Compaq</option>
-                        <option value="MSI">MSI</option>
-                        <option value="Alienware">Alienware</option>
-                        <option value="Xiaomi">Xiaomi</option>
-                        <option value="Huawei">Huawei</option>
-                        <option value="Google">Google</option>
-                        <option value="Razer">Razer</option>
-                        <option value="Corsair">Corsair</option>
-                    </select>
-                    <span asp-validation-for="Marca" class="text-danger"></span>
-                </div>
+                
                 <div class="form-group mt-3">
                     <button type="submit" class="btn btn-secondary d-block mx-auto">Crear</button>
                 </div>

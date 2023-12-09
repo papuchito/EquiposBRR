@@ -18,7 +18,10 @@ namespace Equiposmd.Models
 
         [Required(ErrorMessage = "La Ubicación es obligatoria.")]
         public string Ubicacion { get; set; }
-        [Required(ErrorMessage = "El Teléfono es obligatorio.")]
+        [RegularExpression(@"^\+\d{1,4}\s\d{1,4}\s\d{1,10}$", ErrorMessage = "Por favor, introduce un número de teléfono válido.")]
+        [StringLength(20, ErrorMessage = "El campo {0} debe tener como máximo {1} caracteres.")]
+
+        [Required(ErrorMessage = "El Telefono es obligatorio.")]
         public string Telefono { get; set; }
 
         [Required(ErrorMessage = "La Oficina es obligatoria.")]

@@ -1,0 +1,237 @@
+﻿@model Equiposmd.Models.suvar203
+@{
+    ViewData["Title"] = "Agregar Un Nuevo Empleado";
+}
+<head>
+    <!-- ... otros elementos head ... -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de empleado</title>
+    <style>
+        .container {
+            margin-top: 7px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor 1 -->
+    <div class="container">
+        <h1 style="text-align: right;">Traslado Mobiliario,Equipo y Obras De Arte</h1>
+        <form asp-action="ImprimirVista" method="post">
+
+            <div class="row">
+                <!-- Primera parte del formulario -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Unidad Emisora
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="UnidadEmisora" class="form-control" disabled>
+                        <span asp-validation-for="UnidadEmisora" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Codigo
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Codigo" class="form-control" disabled>
+                        <span asp-validation-for="Codigo" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Fecha
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Fecha" class="form-control" type="date" disabled>
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Departamento/Ubicacion
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Ubicacion" class="form-control" disabled>
+                        <span asp-validation-for="Ubicacion" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Telefono
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Telefono" class="form-control" disabled>
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Oficina/Unidad receptora
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Oficina" class="form-control" disabled>
+                        <span asp-validation-for="Oficina" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Codigo
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="CodigoReceptor" class="form-control" disabled>
+                        <span asp-validation-for="CodigoReceptor" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- Contenedor 2 -->
+            <div class="container">
+                <h1 style="text-align: left;">Mobiliario(s) Equipo(s) y/o Obras de Arte a Trasladar</h1>
+
+                <div class="row">
+                    <!-- Segunda parte del formulario -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Numero De Activo
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Numero_de_activo" class="form-control" disabled>
+                            <span asp-validation-for="Numero_de_activo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Descripcion
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Descripcion" class="form-control" disabled>
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Modelo
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Modelo" class="form-control" disabled>
+                            <span asp-validation-for="Modelo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Marca
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Marca" class="form-control" disabled>
+                            <span asp-validation-for="Marca" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Numero De Serie
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Numerodeserie" class="form-control" disabled>
+                            <span asp-validation-for="Numerodeserie" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Color
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Color" class="form-control" disabled>
+                            <span asp-validation-for="Color" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Condicion
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Condicion" class="form-control" disabled>
+                            <span asp-validation-for="Condicion" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>
+                                Observaciones
+                                <small class="text-muted"></small>
+                            </h6>
+                            <input asp-for="Observaciones" class="form-control" disabled>
+                            <span asp-validation-for="Observaciones" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <a asp-controller="ConsultaGeneral" asp-action="Suvar203Info" class="btn btn-link d-block text-center">Volver</a>
+    </div>
+
+</body>
+</html>
+
+
+
+

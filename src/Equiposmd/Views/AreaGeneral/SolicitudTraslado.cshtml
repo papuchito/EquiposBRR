@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Equiposmd.Models.TrasladarEquipo>
+@{
+    ViewData["Title"] = "Lista de contactos";
+}
+
+<style>
+    .custom-form-bar {
+        margin-bottom: 5px; /* Ajusta el margen inferior según sea necesario */
+    }
+
+        .custom-form-bar input,
+        .custom-form-bar button {
+            height: 30px; /* Ajusta la altura según sea necesario */
+            font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
+        }
+</style>
+<div class="container mt-2">
+    <div class="row justify-content-center my-2">
+        <div class="col-md-4 custom-form-bar">
+            <form id="formSearch" class="form-inline">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Buscar" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="searchTable()">Filtrar</button>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="refreshData()">
+                        <i class="fas fa-sync-alt"></i> Refrescar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-20">
+            <div class="card border">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h3 class="m-0"><strong>Lista De Equipo Trasladados</strong></h3>
+                    <a asp-action="TrasladarEquipo" asp-controller="AreaGeneral" class="btn btn-secondary btn-sm">Nuevo Traslado</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        @if (Model.Count() > 0)
+                        {
+                            <table class="table table-bordered table-striped" id="tblUsuarios" width="100%" style="table-layout: auto">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 3%">@Html.DisplayNameFor(m => m.Id)</th>
+                                        <th style="width: 8%">@Html.DisplayNameFor(m => m.UnidadEmisora)</th>
+                                        <th style="width: 2%">@Html.DisplayNameFor(m => m.Codigo)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Fecha)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Ubicacion)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Telefono)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Oficina)</th>
+                                        <th style="width: 2%">@Html.DisplayNameFor(m => m.CodigoReceptor)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Numero_de_activo)</th>
+                                        <th style="width: 5%">@Html.DisplayNameFor(m => m.Descripcion)</th>
+                                        <th style="width: 8%">@Html.DisplayNameFor(m => m.Modelo)</th>
+                                        <th style="width: 8%">@Html.DisplayNameFor(m => m.Marca)</th>
+                                        <th style="width: 8%">@Html.DisplayNameFor(m => m.Numerodeserie)</th>
+                                        <th style="width: 2%">@Html.DisplayNameFor(m => m.Color)</th>
+                                        <th style="width: 8%">@Html.DisplayNameFor(m => m.Condicion)</th>
+                                        <th style="width: 8%">@Html.DisplayNameFor(m => m.Observaciones)</th>
+                                        <th style="width: 20%">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var contador = 1;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@contador</td>
+                                            <td>@Html.DisplayFor(m => item.UnidadEmisora)</td>
+                                            <td>@Html.DisplayFor(m => item.Codigo)</td>
+                                            <td>@item.Fecha.ToString("yyyy-MM-dd")</td>
+                                            <td>@Html.DisplayFor(m => item.Ubicacion)</td>
+                                            <td>@Html.DisplayFor(m => item.Telefono)</td>
+                                            <td>@Html.DisplayFor(m => item.Oficina)</td>
+                                            <td>@Html.DisplayFor(m => item.CodigoReceptor)</td>
+                                            <td>@Html.DisplayFor(m => item.Numero_de_activo)</td>
+                                            <td>@Html.DisplayFor(m => item.Descripcion)</td>
+                                            <td>@Html.DisplayFor(m => item.Modelo)</td>
+                                            <td>@Html.DisplayFor(m => item.Marca)</td>
+                                            <td>@Html.DisplayFor(m => item.Numerodeserie)</td>
+                                            <td>@Html.DisplayFor(m => item.Color)</td>
+                                            <td>@Html.DisplayFor(m => item.Condicion)</td>
+                                            <td>@Html.DisplayFor(m => item.Observaciones)</td>
+
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a class="btn btn-warning btn-sm" asp-controller="AreaGeneral" asp-action="DetalleTraslado" asp-route-id="@item.Id">Detalle Traslado</a>
+                                                    <a class="btn btn-info btn-sm" asp-controller="AreaGeneral" asp-action="ImprimirTraslado" asp-route-id="@item.Id">Imprimir Traslado</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        contador++;
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p>No hay registros</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Función para manejar el evento de clic en el botón de refrescar
+        function refreshData() {
+            // Recarga la página actual
+            location.reload();
+        }
+
+        // Función para manejar la búsqueda
+        function searchTable() {
+            var searchText = $('#searchInput').val().toLowerCase();
+
+            $('#tblUsuarios tbody tr').each(function () {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(searchText));
+            });
+        }
+    </script>
+}
