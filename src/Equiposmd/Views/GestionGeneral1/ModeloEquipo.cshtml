@@ -47,8 +47,8 @@
                                 Tipo
                                 <small class="text-muted"></small>
                             </h6>
-                            <select asp-for="Tipo" class="form-control">
-                                <option value=""></option>
+                            <select asp-for="Tipo" class="form-control"required>
+                                <option value="" disabled selected>Seleccione el Tipo Del Equipo</option>
                                 <option value="Monitor">Monitor</option>
                                 <option value="Cpu">Cpu</option>
                                 <option value="Mouse">Mouse</option>
@@ -94,8 +94,8 @@
                                 Marca
                                 <small class="text-muted"></small>
                             </h6>
-                            <select asp-for="Marca" class="form-control">
-                                <option value=""></option>
+                            <select asp-for="Marca" class="form-control"required>
+                                <option value="" disabled selected>Seleccione la Marca Del Equipo</option>
                                 <option value="Hp">Hp</option>
                                 <option value="Dell">Dell</option>
                                 <option value="Lenovo">Lenovo</option>
@@ -128,7 +128,7 @@
                         Modelo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Modelo" class="form-control">
+                    <input asp-for="Modelo" class="form-control" placeholder="Ingrese el Modelo"required>
                     <span asp-validation-for="Modelo" class="text-danger"></span>
                 </div>
             </div>
@@ -138,8 +138,8 @@
                         Color
                         <small class="text-muted"></small>
                     </h6>
-                    <select asp-for="Color" class="form-control">
-                        <option value=""></option>
+                    <select asp-for="Color" class="form-control"required>
+                        <option value="" disabled selected>Seleccione el Color</option>
                         <option value="Rojo">Rojo</option>
                         <option value="Azul">Azul</option>
                         <option value="Verde">Verde</option>
@@ -178,8 +178,8 @@
                         Condicion
                         <small class="text-muted"></small>
                     </h6>
-                    <select asp-for="Condicion" class="form-control">
-                        <option value=""></option>
+                    <select asp-for="Condicion" class="form-control"required>
+                        <option value="" disabled selected>Seleccione La Condicion Del Equipo</option>
                         <option value="Nueva">Nueva</option>
                         <option value="Usada">Usada</option>
                     </select>
@@ -192,7 +192,7 @@
                         Numero de activo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="Numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el Número de activo del banco"required>
                     <span asp-validation-for="Numero_de_activo" class="text-danger"></span>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                         Numero serial
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Numero_serial" class="form-control">
+                    <input asp-for="Numero_serial" class="form-control" type= "date" placeholder="Ingrese el Número serial"required>
                     <span asp-validation-for="Numero_serial" class="text-danger"></span>
                 </div>
 
@@ -211,7 +211,7 @@
                         Fecha fabricacion
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_fabricacion" class="form-control" type="date">
+                    <input asp-for="Fecha_fabricacion" class="form-control" type="date"required>
                     <span asp-validation-for="Fecha_fabricacion" class="text-danger"></span>
                 </div>
 
@@ -220,7 +220,7 @@
                         fecha de adquisicion
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="fecha_adquisicion" class="form-control" type="date">
+                    <input asp-for="fecha_adquisicion" class="form-control" type="date" required>
                     <span asp-validation-for="fecha_adquisicion" class="text-danger"></span>
                 </div>
             </div>
@@ -230,7 +230,7 @@
                         Fecha expiracion garantia 1
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_expiracion_garantia_1" class="form-control" type="date">
+                    <input asp-for="Fecha_expiracion_garantia_1" class="form-control" type="date" required>
                     <span asp-validation-for="Fecha_expiracion_garantia_1" class="text-danger"></span>
                 </div>
 
@@ -239,7 +239,7 @@
                         Fecha expiracion garantia 2
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_expiracion_garantia_2" class="form-control" type="date">
+                    <input asp-for="Fecha_expiracion_garantia_2" class="form-control" type="date "required>
                     <span asp-validation-for="Fecha_expiracion_garantia_2" class="text-danger"></span>
                 </div>
 
@@ -248,7 +248,7 @@
                         Fecha final de vida util
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_final_vida_util" class="form-control" type="date">
+                    <input asp-for="Fecha_final_vida_util" class="form-control" type="date" required>
                     <span asp-validation-for="Fecha_final_vida_util" class="text-danger"></span>
                 </div>
             </div>
@@ -260,7 +260,7 @@
                         Fecha de descarte
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_descarte" class="form-control" type="date">
+                    <input asp-for="Fecha_descarte" class="form-control" type="date"required>
                     <span asp-validation-for="Fecha_descarte" class="text-danger"></span>
                 </div>
            
@@ -271,7 +271,7 @@
                         Precio
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Precio" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="Precio" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese El Precio Del Los Equipos"required>
                     <span asp-validation-for="Precio" class="text-danger"></span>
                 </div>
 
@@ -282,7 +282,7 @@
                         Cantidad
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Cantidad" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="Cantidad" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese La Cantidad De Equipo"required>
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
             </div>
                  </div>

@@ -37,42 +37,36 @@
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center;">Asignar Area A un Equipo</h1>
+        <h1 style="text-align: center;">Asignar Área A un Equipo</h1>
         <form asp-action="AsignarAEquipo1" method="post">
 
             <div class="row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-6">
                     <h6>
                         ID del equipo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Id_Equipo" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="Id_Equipo" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el ID del equipo" required title="Complete este campo">
                     <span asp-validation-for="Id_Equipo" class="text-danger"></span>
                 </div>
 
-                <div class="row">
-
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-6">
                     <h6>
-                        Area Asignada
+                        Área Asignada
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Area_Asignada" class="form-control">
+                    <input asp-for="Area_Asignada" class="form-control" placeholder="Ingrese el Área Asignada" required title="Complete este campo">
                     <span asp-validation-for="Area_Asignada" class="text-danger"></span>
                 </div>
-                </div>
+            </div>
 
-                
-                <div class="form-group mt-3">
-                    <button type="submit" class="btn btn-secondary d-block mx-auto">Crear</button>
-                </div>
+            <div class="form-group mt-3 col-md-12">
+                <button type="submit" class="btn btn-secondary d-block mx-auto">Crear</button>
             </div>
         </form>
-        <a asp-controller="Home" asp-action="index" class="btn btn-link d-block text-center">Volver</a>
+        <a asp-controller="home" asp-action="Index" class="btn btn-link d-block text-center"> Volver</a>
     </div>
-</body>
-</html>
-@section Scripts {
+
     <script>
         function validarNumeroActivo(input) {
             // Eliminar cualquier caracter que no sea un número, la letra 'E', o el número '0'
@@ -82,4 +76,5 @@
             input.value = input.value.toUpperCase();
         }
     </script>
-}
+</body>
+</html>

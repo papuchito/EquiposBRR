@@ -41,7 +41,7 @@
                 Area Solicitada
                 <small class="text-muted"></small>
             </h6>
-            <input asp-for="Areasolicitada" class="form-control" />
+            <input asp-for="Areasolicitada" class="form-control" placeholder="Ingrese El Area Solicitada" required />
             <span asp-validation-for="Areasolicitada" class="text-danger"></span>
         </div>
 
@@ -50,16 +50,22 @@
                 Tipo de Equipo
                 <small class="text-muted"></small>
             </h6>
-            <input asp-for="TipoEquipo" class="form-control" />
+            <select asp-for="TipoEquipo" class="form-control" required>
+                <option value="" disabled selected>Seleccione el Tipo Del Equipo</option>
+
+                <option value="PC">PC</option>
+                <option value="Laptop">Laptop</option>
+            </select>
             <span asp-validation-for="TipoEquipo" class="text-danger"></span>
         </div>
+
 
         <div class="form-group col-md-4">
             <h6>
                 Procesador
                 <small class="text-muted"></small>
             </h6>
-            <input asp-for="Procesador" class="form-control" />
+            <input asp-for="Procesador" class="form-control" placeholder="Ingrese El Tipo De Procesador " required />
             <span asp-validation-for="Procesador" class="text-danger"></span>
         </div>
 
@@ -68,8 +74,8 @@
                 Memoria Ram
                 <small class="text-muted"></small>
             </h6>
-            <select asp-for="MemoriaRam" class="form-control">
-                <option value=""></option>
+            <select asp-for="MemoriaRam" class="form-control" required>
+                <option value="" disabled selected>Seleccione Cuanto De Ram Necesitas</option>
                 <option value="4">4</option>
                 <option value="8">8</option>
                 <option value="12">12</option>
@@ -85,8 +91,8 @@
                 Disco Duro
                 <small class="text-muted"></small>
             </h6>
-            <select asp-for="DiscoDuro" class="form-control">
-                <option value=""></option>
+            <select asp-for="DiscoDuro" class="form-control" required>
+                <option value="" disabled selected>Seleccione Cuanto De Disco Duro Necesitas</option>
                 <option value="128GB">128GB SSD</option>
                 <option value="256GB">256GB SSD</option>
                 <option value="320GB">320GB SSD</option>
@@ -106,7 +112,7 @@
                 Tarjeta Grafica
                 <small class="text-muted"></small>
             </h6>
-            <input asp-for="TarjetaGrafica" class="form-control" />
+            <input asp-for="TarjetaGrafica" class="form-control" placeholder="Ingrese El Tipo De Tarjeta Grafica Necesitas " required />
             <span asp-validation-for="TarjetaGrafica" class="text-danger"></span>
         </div>
 
@@ -116,8 +122,8 @@
                 Marca
                 <small class="text-muted"></small>
             </h6>
-            <select asp-for="Marca" class="form-control">
-                <option value=""></option>
+            <select asp-for="Marca" class="form-control" required>
+                <option value="" disabled selected>Seleccione la Marca Del Equipo</option>
                 <option value="Hp">Hp</option>
                 <option value="Dell">Dell</option>
                 <option value="Lenovo">Lenovo</option>

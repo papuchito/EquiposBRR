@@ -41,12 +41,20 @@
         <form asp-action="ListaDeEvento" method="post">
 
             <div class="row">
+                <div class="form-group col-md-6">
+                    <h6>
+                        ID del equipo
+                        <small class="text-muted"></small>
+                    </h6>
+                    <input asp-for="Id_Equipo" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el ID del equipo" required title="Complete este campo">
+                    <span asp-validation-for="Id_Equipo" class="text-danger"></span>
+                </div>
                 <div class="form-group col-md-4">
                     <h6>
                         Numero De Serial
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Numero_serial" class="form-control">
+                    <input asp-for="Numero_serial" class="form-control" placeholder="Ingrese el Numero De Serial"required>
                     <span asp-validation-for="Numero_serial" class="text-danger"></span>
                 </div>
 
@@ -55,7 +63,7 @@
                         Numero de activo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="numero_de_activo" class="form-control" oninput="validarNumeroActivo(input)">
+                    <input asp-for="numero_de_activo" class="form-control" oninput="validarNumeroActivo(input)" placeholder="Ingrese el Numero de activo"required>
                     <span asp-validation-for="numero_de_activo" class="text-danger"></span>
                 </div>
 
@@ -64,7 +72,7 @@
                         Fecha
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha" class="form-control" type="date">
+                    <input asp-for="Fecha" class="form-control" type="date" placeholder="Seleccione la Fecha"required>
                     <span asp-validation-for="Fecha" class="text-danger"></span>
                 </div>
 
@@ -73,7 +81,7 @@
                         TipoEvento
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="TipoEvento" class="form-control">
+                    <input asp-for="TipoEvento" class="form-control" placeholder="Ingrese el TipoEvento"required>
                     <span asp-validation-for="TipoEvento" class="text-danger"></span>
                 </div>
 
@@ -82,7 +90,7 @@
                         Detalles
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Detalles" class="form-control">
+                    <input asp-for="Detalles" class="form-control" placeholder="Ingrese los Detalles"required>
                     <span asp-validation-for="Detalles" class="text-danger"></span>
                 </div>
 
@@ -91,7 +99,7 @@
                         EmpleadoAsignado
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="EmpleadoAsignado" class="form-control">
+                    <input asp-for="EmpleadoAsignado" class="form-control" placeholder="Ingrese el Empleado Asignado"required>
                     <span asp-validation-for="EmpleadoAsignado" class="text-danger"></span>
                 </div>
 
@@ -100,7 +108,7 @@
                         AreaOrigen
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="AreaOrigen" class="form-control">
+                    <input asp-for="AreaOrigen" class="form-control" placeholder="Ingrese el Area de Origen"required>
                     <span asp-validation-for="AreaOrigen" class="text-danger"></span>
                 </div>
 
@@ -109,7 +117,7 @@
                         AreaDestino
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="AreaDestino" class="form-control">
+                    <input asp-for="AreaDestino" class="form-control" placeholder="Ingrese el Area de Destino"required>
                     <span asp-validation-for="AreaDestino" class="text-danger"></span>
                 </div>
 
@@ -118,7 +126,7 @@
                         SoftwareInstalado
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="SoftwareInstalado" class="form-control">
+                    <input asp-for="SoftwareInstalado" class="form-control" placeholder="Ingrese el Software Instalado"required>
                     <span asp-validation-for="SoftwareInstalado" class="text-danger"></span>
                 </div>
 
@@ -127,7 +135,7 @@
                         DetallesMantenimiento
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="DetallesMantenimiento" class="form-control">
+                    <input asp-for="DetallesMantenimiento" class="form-control" placeholder="Ingrese los Detalles de Mantenimiento"required>
                     <span asp-validation-for="DetallesMantenimiento" class="text-danger"></span>
                 </div>
 
@@ -136,7 +144,7 @@
                         DetallesReparacion
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="DetallesReparacion" class="form-control">
+                    <input asp-for="DetallesReparacion" class="form-control" placeholder="Ingrese los Detalles de Reparacion"required>
                     <span asp-validation-for="DetallesReparacion" class="text-danger"></span>
                 </div>
 
@@ -145,7 +153,7 @@
                         DetallesModificacion
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="DetallesModificacion" class="form-control">
+                    <input asp-for="DetallesModificacion" class="form-control" placeholder="Ingrese los Detalles de Modificacion"required>
                     <span asp-validation-for="DetallesModificacion" class="text-danger"></span>
                 </div>
 
@@ -154,10 +162,11 @@
                         CausaDaño
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="CausaDaño" class="form-control">
+                    <input asp-for="CausaDaño" class="form-control" placeholder="Ingrese la Causa del Daño"required>
                     <span asp-validation-for="CausaDaño" class="text-danger"></span>
                 </div>
             </div>
+
 
 
 

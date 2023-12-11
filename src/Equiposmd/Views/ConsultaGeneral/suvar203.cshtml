@@ -46,7 +46,7 @@
                             Unidad Emisora
                             <small class="text-muted"></small>
                         </h6>
-                        <input asp-for="UnidadEmisora" class="form-control">
+                        <input asp-for="UnidadEmisora" class="form-control" placeholder="Ingrese la Unidad Emisora"required>
                         <span asp-validation-for="UnidadEmisora" class="text-danger"></span>
                     </div>
                 </div>
@@ -56,22 +56,22 @@
                             Codigo
                             <small class="text-muted"></small>
                         </h6>
-                        <input asp-for="Codigo" class="form-control" oninput="validarNumeroActivo(this)">
+                        <input asp-for="Codigo" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el Código"required>
                         <span asp-validation-for="Codigo" class="text-danger"></span>
                     </div>
 
                 </div>
 
-               
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <h6>
-                                Fecha
-                                <small class="text-muted"></small>
-                            </h6>
-                        <input asp-for="Fecha" class="form-control" type="date">
-                            <span asp-validation-for="Fecha" class="text-danger"></span>
-                        </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h6>
+                            Fecha
+                            <small class="text-muted"></small>
+                        </h6>
+                        <input asp-for="Fecha" class="form-control" type="date" placeholder="Seleccione la Fecha"required>
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
@@ -79,10 +79,10 @@
                             Departamento/Ubicacion
                             <small class="text-muted"></small>
                         </h6>
-                        <input asp-for="Ubicacion" class="form-control">
+                        <input asp-for="Ubicacion" class="form-control" placeholder="Ingrese el Departamento/Ubicación"required>
                         <span asp-validation-for="Ubicacion" class="text-danger"></span>
                     </div>
-                
+
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
@@ -90,31 +90,32 @@
                             Telefono
                             <small class="text-muted"></small>
                         </h6>
-                        <input asp-for="Telefono" class="form-control">
+                        <input asp-for="Telefono" class="form-control" placeholder="Ingrese el Departamento/Ubicación"required>
                         <span asp-validation-for="Telefono" class="text-danger"></span>
                     </div>
-                
+
                 </div>
+
                 <div class="col-md-4">
                     <div class="form-group">
                         <h6>
                             Oficina/Unidad receptora
                             <small class="text-muted"></small>
                         </h6>
-                        <input asp-for="Oficina" class="form-control">
+                        <input asp-for="Oficina" class="form-control" placeholder="Ingrese la Oficina/Unidad receptora"required>
                         <span asp-validation-for="Oficina" class="text-danger"></span>
                     </div>
-                
+
                 </div>
 
-                
+
                 <div class="col-md-4">
                     <div class="form-group">
                         <h6>
                             Codigo
                             <small class="text-muted"></small>
                         </h6>
-                        <input asp-for="CodigoReceptor" class="form-control" oninput="validarNumeroActivo(this)">
+                        <input asp-for="CodigoReceptor" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el Código Receptor"required>
                         <span asp-validation-for="CodigoReceptor" class="text-danger"></span>
                     </div>
 
@@ -125,7 +126,7 @@
 
             <!-- Contenedor 2 -->
             <div class="container">
-                <h1 style="text-align: left;">Descarte(s) De Equipo(s) Mobiliarios</h1>
+                <h1 style="text-align: left;">Mobiliario(s) Equipo(s) y/o Obras de Arte a Trasladar</h1>
 
                 <div class="row">
                     <!-- Segunda parte del formulario -->
@@ -135,7 +136,7 @@
                                 Numero De Activo
                                 <small class="text-muted"></small>
                             </h6>
-                            <input asp-for="Numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)">
+                            <input asp-for="Numero_de_activo" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el Numero de Activo"required>
                             <span asp-validation-for="Numero_de_activo" class="text-danger"></span>
                         </div>
                     </div>
@@ -146,7 +147,7 @@
                                 Descripcion
                                 <small class="text-muted"></small>
                             </h6>
-                            <input asp-for="Descripcion" class="form-control">
+                            <input asp-for="Descripcion" class="form-control" placeholder="Ingrese el Numero de Activo"required>
                             <span asp-validation-for="Descripcion" class="text-danger"></span>
                         </div>
                     </div>
@@ -157,7 +158,7 @@
                                 Modelo
                                 <small class="text-muted"></small>
                             </h6>
-                            <input asp-for="Modelo" class="form-control">
+                            <input asp-for="Modelo" class="form-control" placeholder="Ingrese el Modelo"required>
                             <span asp-validation-for="Modelo" class="text-danger"></span>
                         </div>
                     </div>
@@ -167,8 +168,8 @@
                             Marca
                             <small class="text-muted"></small>
                         </h6>
-                        <select asp-for="Marca" class="form-control">
-                            <option value=""></option>
+                        <select asp-for="Marca" class="form-control"  required>
+                            <option value="" disabled selected>Seleccione la Marca Del Equipo</option>
                             <option value="Hp">Hp</option>
                             <option value="Dell">Dell</option>
                             <option value="Lenovo">Lenovo</option>
@@ -245,7 +246,7 @@
                                 Numero De Serie
                                 <small class="text-muted"></small>
                             </h6>
-                            <input asp-for="Numerodeserie" class="form-control">
+                            <input asp-for="Numerodeserie" class="form-control" placeholder="Ingrese el Numero de Serie"required>
                             <span asp-validation-for="Numerodeserie" class="text-danger"></span>
                         </div>
                     </div>
@@ -255,8 +256,8 @@
                             Color
                             <small class="text-muted"></small>
                         </h6>
-                        <select asp-for="Color" class="form-control">
-                            <option value=""></option>
+                        <select asp-for="Color" class="form-control" required>
+                            <option value="" disabled selected>Seleccione el Color</option>
                             <option value="Rojo">Rojo</option>
                             <option value="Azul">Azul</option>
                             <option value="Verde">Verde</option>
@@ -288,7 +289,7 @@
 
                         </select>
                         <span asp-validation-for="Color" class="text-danger"></span>
-                    
+
                     </div>
 
                     <div class="form-group col-md-4">
@@ -296,8 +297,8 @@
                             Condicion
                             <small class="text-muted"></small>
                         </h6>
-                        <select asp-for="Condicion" class="form-control">
-                            <option value=""></option>
+                        <select asp-for="Condicion" class="form-control" required>
+                            <option value="" disabled selected>Seleccione La Condicion Del Equipo</option>
                             <option value="Nueva">Nueva</option>
                             <option value="Usada">Usada</option>
                             <option value="Dañada">Dañada</option>
@@ -312,7 +313,7 @@
                                 Observaciones
                                 <small class="text-muted"></small>
                             </h6>
-                            <input asp-for="Observaciones" class="form-control">
+                            <input asp-for="Observaciones" class="form-control" placeholder="Ingrese Observaciones"required>
                             <span asp-validation-for="Observaciones" class="text-danger"></span>
                         </div>
                     </div>

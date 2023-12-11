@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,22 +12,24 @@ namespace Equiposmd.Models
 
         [Required(ErrorMessage = "La Unidad Emisora es obligatoria.")]
         public string UnidadEmisora { get; set; }
+
         [Required(ErrorMessage = "El Código es obligatorio.")]
         public int Codigo { get; set; }
+
         [Required(ErrorMessage = "La Fecha es obligatoria.")]
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "La Ubicación es obligatoria.")]
         public string Ubicacion { get; set; }
+
         [Required(ErrorMessage = "El Teléfono es obligatorio.")]
         public string Telefono { get; set; }
 
         [Required(ErrorMessage = "La Oficina es obligatoria.")]
         public string Oficina { get; set; }
+
         [Required(ErrorMessage = "El Código es obligatorio.")]
-
         public int CodigoReceptor { get; set; }
-
 
         [Required(ErrorMessage = "El Número de activo del equipo es obligatorio.")]
         public int Numero_de_activo { get; set; }

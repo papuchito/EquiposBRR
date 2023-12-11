@@ -116,6 +116,9 @@ namespace Equiposmd.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Id_Equipo")
+                        .HasColumnType("int");
+
                     b.Property<string>("Numero_serial")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

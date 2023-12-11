@@ -48,32 +48,34 @@
                         ID del Equipo
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="ID_del_Equipo" class="form-control" oninput="validarNumeroActivo(this)">
+                    <input asp-for="ID_del_Equipo" class="form-control" oninput="validarNumeroActivo(this)" placeholder="Ingrese el ID del Equipo" required>
                     <span asp-validation-for="ID_del_Equipo" class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group col-md-4">
                     <h6>
-                        Fecha de asignacion
+                        Fecha de Asignación
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Fecha_de_Asignacion" class="form-control" type="date">
+                    <input asp-for="Fecha_de_Asignacion" class="form-control" type="date" required>
                     <span asp-validation-for="Fecha_de_Asignacion" class="text-danger"></span>
                 </div>
+
                 <div class="form-group col-md-4">
                     <h6>
                         Estado
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Estado" class="form-control">
-                    <span asp-validation-for="Estado" class="text-danger"></span>               
+                    <input asp-for="Estado" class="form-control" placeholder="Ingrese el Estado" required>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
+
                 <div class="form-group col-md-4">
                     <h6>
                         Ubicación Actual
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Ubicación_Actual" class="form-control">
+                    <input asp-for="Ubicación_Actual" class="form-control" placeholder="Ingrese la Ubicación Actual" required>
                     <span asp-validation-for="Ubicación_Actual" class="text-danger"></span>
                 </div>
 
@@ -82,10 +84,11 @@
                         Asignado
                         <small class="text-muted"></small>
                     </h6>
-                    <input asp-for="Asignado" class="form-control">
-                    <span asp-validation-for="Asignado" class="text-danger"></span>                
+                    <input asp-for="Asignado" class="form-control" placeholder="Ingrese el Asignado" required>
+                    <span asp-validation-for="Asignado" class="text-danger"></span>
+                </div>
             </div>
-            </div>
+
 
             <div class="form-group mt-3">
                 <button type="submit" class="btn btn-primary d-block mx-auto">Crear</button>

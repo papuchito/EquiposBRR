@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Equiposmd.Models
@@ -10,8 +10,10 @@ namespace Equiposmd.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required(ErrorMessage = "El Tipo de equipo es obligatorio")]
         public int Id_Equipo { get; set; }
+
         [Required(ErrorMessage = "El Tipo de equipo es obligatorio")]
         public string Tipo { get; set; }
 
@@ -32,6 +34,5 @@ namespace Equiposmd.Models
 
         [Required(ErrorMessage = "El Color del equipo es obligatorio")]
         public string Color { get; set; }
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Equiposmd.Models
@@ -11,25 +12,26 @@ namespace Equiposmd.Models
 
         [Required(ErrorMessage = "La Unidad Emisora es obligatoria.")]
         public string UnidadEmisora { get; set; }
+
         [Required(ErrorMessage = "El Código es obligatorio.")]
         public int Codigo { get; set; }
+
         [Required(ErrorMessage = "La Fecha es obligatoria.")]
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "La Ubicación es obligatoria.")]
         public string Ubicacion { get; set; }
+
         [RegularExpression(@"^\+\d{1,4}\s\d{1,4}\s\d{1,10}$", ErrorMessage = "Por favor, introduce un número de teléfono válido.")]
         [StringLength(20, ErrorMessage = "El campo {0} debe tener como máximo {1} caracteres.")]
-
-        [Required(ErrorMessage = "El Telefono es obligatorio.")]
+        [Required(ErrorMessage = "El Teléfono es obligatorio.")]
         public string Telefono { get; set; }
 
         [Required(ErrorMessage = "La Oficina es obligatoria.")]
         public string Oficina { get; set; }
+
         [Required(ErrorMessage = "El Código es obligatorio.")]
-
         public int CodigoReceptor { get; set; }
-
 
         [Required(ErrorMessage = "El Número de activo del equipo es obligatorio.")]
         public int Numero_de_activo { get; set; }
@@ -56,4 +58,3 @@ namespace Equiposmd.Models
         public string Observaciones { get; set; }
     }
 }
-
